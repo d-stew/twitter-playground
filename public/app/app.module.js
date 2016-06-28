@@ -29,6 +29,7 @@
 
     //intial data values
     $scope.brexitData = [0,0,0,0,0,0,0];
+    $scope.coordinates = [];
 
     socket.on('newTweet', function (tweet) {
       $scope.tweet = tweet.text
@@ -41,9 +42,18 @@
       var geo = tweet.geo
 
       //check source for geolocation
-      if (coords) console.log("Coordinates: ", coords.coordinates);
-      if (place) console.log("Place: ", place.bounding_box.coordinates[0][0]);
-      if (geo) console.log("Geo: ", geo.coordinates)
+      if (coords) {
+        console.log("Coordinates: ", coords.coordinates);
+        $scope.coordinates.push(coords.coordinates)
+      }
+      if (place) {
+        console.log("Place: ", place.bounding_box.coordinates[0][0]);
+        $scope.coordinates.push(place.bounding_box.coordinates[0][0])
+      }
+      if (geo) {
+        console.log("Geo: ", geo.coordinates)
+        $scope.coordinates.push(geo.coordinates)
+      }
 
     });
   }
