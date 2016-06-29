@@ -27,7 +27,9 @@
                        "and","of","to","","&","on","-","the","in","be","by","for",
                        "a","an","my","rt","i","is","but","me","you","not","with",
                        "are","it","as","that","this","their","at","from","have",
-                       "there","will","all","like"
+                       "there","will","all","like","or","up","what",".","+","was",
+                       "about","so","very","than","has","could","we","do","if",
+                       "still"
                        ];
 
         words.forEach(function (word) {
@@ -36,6 +38,7 @@
               !fillers.includes(word.toLowerCase()) &&
               word.charAt(0) !== "@" &&
               word.charAt(0) !== "&" &&
+              word.charAt(0) !== "\"" &&
               !word.includes('http')
               )
             {
@@ -63,7 +66,7 @@
           tags.push([d.key,parseInt(d.values)]);
         });
 
-        tags = tags.slice(0,25);
+        tags = tags.slice(0,15);
 
         return tags;
       }

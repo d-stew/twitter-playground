@@ -22,24 +22,12 @@
       enCloud = newValue;
     })
 
-
-    // activate();
-    //
-    // function activate() {
-    //   let test = cloudService.test();
-    //   let tags = cloudService.cloudData(enCloud);
-    //   console.log(test);
-    //   console.log(tags);
-    // }
-
     $interval(function() {
       getData()
     }, 5000)
 
     function getData() {
-      console.log(cloudService.test());
-      console.log(cloudService.cloudData(enCloud));
-
+      vm.tags = cloudService.cloudData(enCloud);
     }
   }
 
