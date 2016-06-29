@@ -17,14 +17,14 @@
         return "Hit in factory"
       }
 
-      // prep tweet data to be used in word cloud
       function getCloudData(enCloud) {
-        let wordArray = enCloud.split(" ");
+        // prep tweet data to be used in word cloud
+        let words = enCloud.split(" ");
         let wordObjects = [];
 
-        // remove filler words, push into array
+        // if not a filler word, assign to object and push into wordObjects array
         let fillers = ["AND","OF","TO","","&","ON","-","THE","IN","BE","FOR","A"]
-        wordArray.forEach(function (word) {
+        words.forEach(function (word) {
           if (isNaN(word) && !fillers.includes(word)) {
             let wordObject = {};
             wordObject.word = word;
