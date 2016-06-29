@@ -23,7 +23,6 @@ var hashtags = '#brexit';
 client.stream('statuses/filter', {track: hashtags}, function(stream) {
   stream.on('data', function(tweet) {
     io.emit('newTweet', tweet);
-    // console.log(tweet.text);
   });
 
   stream.on('error', function(error) {
