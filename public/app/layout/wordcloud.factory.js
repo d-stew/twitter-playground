@@ -23,13 +23,26 @@
         let wordObjects = [];
 
         // if not a filler word, assign to object and push into wordObjects array
-        let fillers = ["AND","OF","TO","","&","ON","-","THE","IN","BE","FOR","A"]
+        let fillers = [
+                       "and","of","to","","&","on","-","the","in","be","by","for",
+                       "a","an","my","rt","i","is","but","me","you","not","with",
+                       "are","it","as","that","this","their","at","from","have",
+                       "there","will","all","like"
+                       ];
+
         words.forEach(function (word) {
-          if (isNaN(word) && !fillers.includes(word)) {
-            let wordObject = {};
-            wordObject.word = word;
-            wordObjects.push(wordObject);
-          }
+          if (
+              isNaN(word) &&
+              !fillers.includes(word.toLowerCase()) &&
+              word.charAt(0) !== "@" &&
+              word.charAt(0) !== "&" &&
+              !word.includes('http')
+              )
+            {
+              let wordObject = {};
+              wordObject.word = word;
+              wordObjects.push(wordObject);
+            }
         });
 
         // group by word, count instances

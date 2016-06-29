@@ -22,8 +22,8 @@
     $locationProvider.html5Mode(true);
   }
 
-  controller.$inject = ['$scope', 'socket'];
-  function controller($scope, socket) {
+  controller.$inject = ['$scope', '$rootScope', 'socket'];
+  function controller($scope, $rootScope, socket) {
 
     // intial data values
     $scope.brexitData = [0,0,0,0,0,0,0];
@@ -59,6 +59,7 @@
         $scope.coordinates.push(geo.coordinates)
       }
 
+      $rootScope.$broadcast('updateData', $scope.enCloud)
     });
 
   }

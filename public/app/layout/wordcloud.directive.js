@@ -13,13 +13,14 @@
     }
   }
 
-  cloudController.$inject = ['$scope', 'cloudService']
+  cloudController.$inject = ['$scope', 'cloudService', '$interval']
 
-  function cloudController($scope, cloudService) {
+  function cloudController($scope, cloudService, $interval) {
     let vm = this;
-    console.log('hit in directive');
-    let enCloud = $scope.enCloud;
-    vm.getData = getData;
+    let enCloud;
+    $scope.$on('updateData', function(event, newValue) {
+      enCloud = newValue;
+    })
 
 
     // activate();
@@ -30,6 +31,10 @@
     //   console.log(test);
     //   console.log(tags);
     // }
+
+    $interval(function() {
+      getData()
+    }, 5000)
 
     function getData() {
       console.log(cloudService.test());
