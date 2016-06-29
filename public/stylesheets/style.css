@@ -1,8 +1,22 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  background-color: rgb(98, 98, 98);
 }
 
 a {
   color: #00B7FF;
+}
+
+#wordcloud {
+  float: left;
+  border-right: 1px solid white;
+  padding: 0.25% 2% 0 0.5%;
+  margin-right: 2%;
+}
+
+.word {
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 22px;
 }
