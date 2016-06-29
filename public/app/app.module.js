@@ -9,7 +9,6 @@
     .config(setupRoutes);
 
   setupRoutes.$inject = ['$stateProvider','$urlRouterProvider','$httpProvider','$locationProvider'];
-
   function setupRoutes($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider){
 
     $stateProvider
@@ -24,24 +23,29 @@
   }
 
   controller.$inject = ['$scope', 'socket'];
-
   function controller($scope, socket) {
 
-    //intial data values
+    // intial data values
     $scope.brexitData = [0,0,0,0,0,0,0];
     $scope.coordinates = [];
+    $scope.enCloud = "";
 
     socket.on('newTweet', function (tweet) {
       $scope.tweet = tweet.text
       $scope.user = tweet.user.screen_name
 
-      //parse language and location from payload
+      // parse language and location
       var lang = tweet.lang
       var coords = tweet.coordinates
       var place = tweet.place
       var geo = tweet.geo
 
-      //check source for geolocation
+      // push tweet into cloudText
+      if (lang === "en") {
+        $scope.enCloud += tweet.text + " "
+      }
+
+      // check source for geolocation
       if (coords) {
         console.log("Coordinates: ", coords.coordinates);
         $scope.coordinates.push(coords.coordinates)
@@ -56,6 +60,7 @@
       }
 
     });
+
   }
 
   // SOCKET.IO METHODS

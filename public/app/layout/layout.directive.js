@@ -8,8 +8,14 @@
     return {
       restrict: 'E',
       templateUrl: '/app/layout/layout.directive.html',
-      controller: function () {
-      }
+      controller: controller
     }
   }
+
+  controller.$inject = ['$scope']
+
+  function controller($scope){
+
+  }
+
 }());
