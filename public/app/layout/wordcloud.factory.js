@@ -19,11 +19,11 @@
 
       function getCloudData(enCloud) {
         // prep tweet data to be used in word cloud
-        let words = enCloud.split(" ");
-        let wordObjects = [];
+        var words = enCloud.split(" ");
+        var wordObjects = [];
 
         // if not a filler word, assign to object and push into wordObjects array
-        let fillers = [
+        var fillers = [
                        "and","of","to","","&","on","-","the","in","be","by","for",
                        "a","an","my","rt","i","is","but","me","you","not","with",
                        "are","it","as","that","this","their","at","from","have",
@@ -42,14 +42,14 @@
               !word.includes('http')
               )
             {
-              let wordObject = {};
+              var wordObject = {};
               wordObject.word = word;
               wordObjects.push(wordObject);
             }
         });
 
         // group by word, count instances
-        let wordCount = d3.nest()
+        var wordCount = d3.nest()
           .key(function(d) { return d.word; })
           .rollup(function(v) { return v.length; })
           .entries(wordObjects);
@@ -60,7 +60,7 @@
         });
 
         // format data for word cloud
-        let tags = [];
+        var tags = [];
 
         wordCount.forEach(function(d) {
           tags.push([d.key,parseInt(d.values)]);

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  let dependencies = [
+  var dependencies = [
     'ui.router'
   ];
 

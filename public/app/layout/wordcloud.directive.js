@@ -16,8 +16,8 @@
   cloudController.$inject = ['$scope', 'cloudService', '$interval']
 
   function cloudController($scope, cloudService, $interval) {
-    let vm = this;
-    let enCloud;
+    var vm = this;
+    var enCloud;
     $scope.$on('updateData', function(event, newValue) {
       enCloud = newValue;
     })
