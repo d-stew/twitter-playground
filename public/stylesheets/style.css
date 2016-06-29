@@ -9,6 +9,8 @@ a {
 }
 
 #wordcloud {
+  min-width: 10%;
+  min-height: 80%;
   float: left;
   border-right: 1px solid white;
   padding: 0.25% 2% 0 0.5%;
@@ -19,4 +21,12 @@ a {
   color: white;
   font-family: 'Quicksand', sans-serif;
   font-size: 22px;
+}
+
+div.tweets {
+  color: white;
+}
+
+div.coords {
+  color: white;
 }
