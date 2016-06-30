@@ -3,8 +3,8 @@ var router = express.Router();
 var watson = require('watson-developer-cloud');
 
 var tone_analyzer = watson.tone_analyzer({
-  username: '6838972c-9c73-4d0b-a84c-180f100c95e3',
-  password: '7SvnfCKUGOdW',
+  username: process.env.WATSON_USERNAME,
+  password: process.env.WATSON_PASSWORD,
   version: 'v3',
   version_date: '2016-05-19'
 });
