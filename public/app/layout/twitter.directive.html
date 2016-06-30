@@ -1,5 +1,29 @@
-<div id="left-bar">
-  <p ng-repeat="tag in vm.tags">
-    <span class="word" ng-bind="tag[0]"></span>
-  </p>
+<div class="container-fluid">
+  <div class="row">
+
+    <div id="left-bar" class="col-md-2">
+      <h3 class="label">TOP WORDS</h3>
+      <br><br>
+      <p ng-repeat="tag in vm.tags">
+        <span class="word" ng-bind="tag[0]"></span>
+      </p>
+    </div>
+
+    <div id="main-block" class="col-md-8 col-md-offset-2">
+      <h3 class="label">TONE ANALYSIS</h3>
+      <span ng-repeat="tone in vm.toneData[0].tones">
+        <p>{{ tone.tone_name }}: {{ tone.score }}</p>
+      </span>
+      <br><br>
+      <h3 class="label">TWEET COORDINATES</h3>
+      <p>{{ coordinates }}</p>
+    </div>
+
+    <div id="right-bar" class="col-md-2">
+      <h3 class="label">LIVE TWEETS</h3>
+      <br><br>
+      <p>{{ tweet }}</p>
+    </div>
+
+  </div>
 </div>

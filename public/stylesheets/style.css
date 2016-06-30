@@ -1,11 +1,18 @@
 body {
   padding: 50px;
+  padding-top: 100px;
   font-family: 'Quicksand', sans-serif;
   background-color: rgb(98, 98, 98);
 }
 
 a {
   color: #00B7FF;
+}
+
+h3.label {
+  font-family: 'Raleway', sans-serif;
+  color: rgb(102, 232, 255);
+  font-size: 22px;
 }
 
 /* Left Bar / Word Cloud*/
@@ -22,10 +29,10 @@ a {
   color: white;
 }
 .word {
-  font-size: 22px;
+  font-size: 16px;
 }
 
-/* Right Bar / Sentiment Analysis */
+/* Right Bar / Live Tweets */
 #right-bar {
   position: fixed;
   right: 0;
@@ -41,8 +48,6 @@ a {
 
 /* Center Block*/
 div#main-block {
-  margin: auto;
-  max-width: 70%;
   color: white;
   text-align: center;
 }
