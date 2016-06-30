@@ -33,7 +33,11 @@
     }
 
     function toneAnalyzer() {
-      console.log(twitterService.toneAnalyzer(englishData));
+      twitterService.toneAnalyzer(englishData)
+      .then(function(toneData) {
+        vm.toneData = toneData
+        console.log(vm.toneData);
+      })
     }
   }
 

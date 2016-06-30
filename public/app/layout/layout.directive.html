@@ -2,9 +2,12 @@
 
 <twitter></twitter>
 
-<div class="coords">
+<div id="main-block">
   <h3>Tweet Coordinates</h3>
   <p>{{ coordinates }}</p>
+  <span ng-repeat="tone in vm.toneData[0].tones">
+    <p>{{ tone.tone_name }}: {{ tone.score }}</p>
+  </span>
 <div>
 
 <div id="right-bar" class="tweets">

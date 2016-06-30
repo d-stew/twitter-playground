@@ -40,7 +40,7 @@ a {
 }
 
 /* Center Block*/
-div.coords {
+div#main-block {
   margin: auto;
   max-width: 70%;
   color: white;

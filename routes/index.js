@@ -21,9 +21,9 @@ router.post('/watson', function(req, res, next) {
   tone_analyzer.tone({ text: data },
   function(err, tone) {
     if (err)
-    console.log(err);
+      console.log(err);
     else
-    console.log(JSON.stringify(tone, null, 2));
+      res.json(tone, null, 2);
   });
 })
 
