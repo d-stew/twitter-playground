@@ -29,7 +29,7 @@
                        "are","it","as","that","this","their","at","from","have",
                        "there","will","all","like","or","up","what",".","+","was",
                        "about","so","very","than","has","could","we","do","if",
-                       "still","~","our","first!"
+                       "still","~","our","first!","its","it's","can","some"
                        ];
 
         words.forEach(function (word) {
