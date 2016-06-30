@@ -10,7 +10,8 @@
 
       return {
         test: test,
-        cloudData: getCloudData
+        cloudData: getCloudData,
+        toneAnalyzer: getWatsonData
       }
 
       function test() {
@@ -76,6 +77,13 @@
 
         tags = tags.slice(0,15);
         return tags;
+      }
+
+      function getWatsonData(englishData) {
+        return $http.post('http://localhost:3000/watson', {englishData})
+        .then(function(response) {
+          console.log('Factory response', response)
+        })
       }
 
     }

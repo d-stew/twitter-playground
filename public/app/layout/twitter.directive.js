@@ -18,16 +18,22 @@
   function twitterController($scope, twitterService, $interval) {
     var vm = this;
     var englishData;
+
     $scope.$on('updateData', function(event, newValue) {
       englishData = newValue;
     })
 
     $interval(function() {
-      getData()
+      getData();
+      toneAnalyzer();
     }, 5000)
 
     function getData() {
       vm.tags = twitterService.cloudData(englishData);
+    }
+
+    function toneAnalyzer() {
+      console.log(twitterService.toneAnalyzer(englishData));
     }
   }
 

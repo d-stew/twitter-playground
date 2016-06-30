@@ -15,13 +15,17 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.post('/watson', function(req, res, next) {
+  var data = req.body.englishData;
 
-tone_analyzer.tone({ text: 'Greetings from Watson Developer Cloud!' },
-function(err, tone) {
-  if (err)
-  console.log(err);
-  else
-  console.log(JSON.stringify(tone, null, 2));
-});
+  tone_analyzer.tone({ text: data },
+  function(err, tone) {
+    if (err)
+    console.log(err);
+    else
+    console.log(JSON.stringify(tone, null, 2));
+  });
+})
+
 
 module.exports = router;
