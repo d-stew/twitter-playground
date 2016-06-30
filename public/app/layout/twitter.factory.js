@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app')
-    .factory('cloudService', factory);
+    .factory('twitterService', factory);
 
     factory.$inject = ['$http', '$window'];
 
@@ -14,12 +14,12 @@
       }
 
       function test() {
-        return "Hit in factory"
+        return "test"
       }
 
-      function getCloudData(enCloud) {
+      function getCloudData(englishData) {
         // prep tweet data to be used in word cloud
-        var words = enCloud.split(" ");
+        var words = englishData.split(" ");
         var wordObjects = [];
 
         // if not a filler word, assign to object and push into wordObjects array
@@ -30,7 +30,8 @@
                        "there","will","all","like","or","up","what",".","+","was",
                        "about","so","very","than","has","could","we","do","if",
                        "still","~","our","first!","its","it's","can","some","says",
-                       "he","she","your","his","hers","him","her"
+                       "he","she","your","his","hers","him","her","too","said","sees",
+                       "say"
                        ];
 
         words.forEach(function (word) {
@@ -74,7 +75,6 @@
         });
 
         tags = tags.slice(0,15);
-
         return tags;
       }
 

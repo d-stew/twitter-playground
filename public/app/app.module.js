@@ -28,7 +28,7 @@
     // intial data values
     $scope.brexitData = [0,0,0,0,0,0,0];
     $scope.coordinates = [];
-    $scope.enCloud = "";
+    $scope.englishData = "";
 
     socket.on('newTweet', function (tweet) {
       $scope.tweet = tweet.text
@@ -42,7 +42,7 @@
 
       // push tweet into cloudText
       if (lang === "en") {
-        $scope.enCloud += tweet.text + " "
+        $scope.englishData += tweet.text + " "
       }
 
       // check source for geolocation
@@ -59,7 +59,7 @@
         $scope.coordinates.push(geo.coordinates)
       }
 
-      $rootScope.$broadcast('updateData', $scope.enCloud)
+      $rootScope.$broadcast('updateData', $scope.englishData)
     });
 
   }
