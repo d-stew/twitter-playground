@@ -8,25 +8,41 @@ a {
   color: #00B7FF;
 }
 
-#wordcloud {
-  min-width: 10%;
+/* Left Bar / Word Cloud*/
+#left-bar {
+  position: fixed;
+  left: 0;
+  min-width: 15%;
+  max-width: 15%;
   min-height: 80%;
-  float: left;
   border-right: 1px solid white;
-  padding: 0.25% 2% 0 0.5%;
+  padding: 0.25% 2% 0 2%;
   margin-right: 2%;
-}
-
-.word {
-  color: white;
   font-family: 'Quicksand', sans-serif;
+  color: white;
+}
+.word {
   font-size: 22px;
 }
 
-div.tweets {
+/* Right Bar / Sentiment Analysis */
+#right-bar {
+  position: fixed;
+  right: 0;
+  min-width: 15%;
+  max-width: 15%;
+  min-height: 80%;
+  border-left: 1px solid white;
+  padding: 0.25% 2% 0 2%;
+  margin-left: 2%;
+  font-family: 'Quicksand', sans-serif;
   color: white;
 }
 
+/* Center Block*/
 div.coords {
+  margin: auto;
+  max-width: 70%;
   color: white;
+  text-align: center;
 }

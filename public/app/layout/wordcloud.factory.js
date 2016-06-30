@@ -29,7 +29,8 @@
                        "are","it","as","that","this","their","at","from","have",
                        "there","will","all","like","or","up","what",".","+","was",
                        "about","so","very","than","has","could","we","do","if",
-                       "still","~","our","first!","its","it's","can","some"
+                       "still","~","our","first!","its","it's","can","some","says",
+                       "he","she","your","his","hers","him","her"
                        ];
 
         words.forEach(function (word) {
