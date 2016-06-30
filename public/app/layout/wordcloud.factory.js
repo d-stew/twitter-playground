@@ -42,6 +42,9 @@
               !word.includes('http')
               )
             {
+              if(word.charAt(0) === "#") {
+                word = word.substring(1);
+              }
               var wordObject = {};
               wordObject.word = word;
               wordObjects.push(wordObject);
