@@ -36,7 +36,12 @@
       twitterService.toneAnalyzer(englishData)
       .then(function(toneData) {
         vm.toneData = toneData
-        console.log(vm.toneData);
+        $scope.chartData[0] = vm.toneData[0].tones[0].score;
+        $scope.chartData[1] = vm.toneData[0].tones[1].score;
+        $scope.chartData[2] = vm.toneData[0].tones[2].score;
+        $scope.chartData[3] = vm.toneData[0].tones[3].score;
+        $scope.chartData[4] = vm.toneData[0].tones[4].score;
+        console.log($scope.chartData);
       })
     }
   }
