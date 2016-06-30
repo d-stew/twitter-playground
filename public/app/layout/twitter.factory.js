@@ -80,7 +80,7 @@
       }
 
       function getWatsonData(englishData) {
-        return $http.post('http://localhost:3000/watson', {englishData})
+        return $http.post('http://twang.herokuapp.com/watson', {englishData})
         .then(function(response) {
           return response.data.document_tone.tone_categories
         })
