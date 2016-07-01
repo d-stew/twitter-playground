@@ -24,12 +24,12 @@
     // chart colors
     $scope.colors = ['#7b8cfe','#fe7bc6','#7af7dd','#e98e53', '#bd99f2'];
     // chart series
-    $scope.series = ['English', 'French']
+    $scope.series = ['English', 'French', 'Spanish']
     // initial data values
-    $scope.chartData = [[0.444448, 0.145185, 0.952924, 0.032998, 0.44381],[0.25, 0.33, 0.80, 0.05, 0.15]]
+    $scope.chartData = [[0.444448, 0.145185, 0.952924, 0.032998, 0.44381],[0.25, 0.33, 0.80, 0.05, 0.15],[0.15, 0.3, 0.66, 0.12, 0.24]]
     // chart options
     $scope.options = {
-      fillColor: 'rgba(98, 33, 33, 0.9)'
+      tooltipFontColor: '#FFF'
     }
 
     $scope.$on('updateData', function(event, newValue) {
