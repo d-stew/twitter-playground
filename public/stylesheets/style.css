@@ -36,8 +36,8 @@ h3.label {
 #right-bar {
   position: fixed;
   right: 0;
-  min-width: 20%;
-  max-width: 20%;
+  min-width: 18%;
+  max-width: 18%;
   min-height: 80%;
   max-height: 80%;
   border-left: 1px solid white;
@@ -63,6 +63,7 @@ p.username {
 }
 p.tweet {
   margin-bottom: -2%;
+  font-size: 12px;
 }
 
 /* Center Block*/
