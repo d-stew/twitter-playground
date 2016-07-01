@@ -41,7 +41,7 @@
       $scope.user = tweet.user.screen_name
 
       // push new tweet into tweet queue
-      if ($scope.tweetQueue.length < 3) {
+      if ($scope.tweetQueue.length < 4) {
         $scope.tweetQueue.unshift({user: $scope.user, tweet: $scope.tweet})
       } else {
         $scope.tweetQueue.pop();

@@ -26,11 +26,11 @@
     <div id="right-bar" class="col-md-2">
       <h3 class="label">LIVE TWEETS</h3>
       <br><br>
-      <span ng-repeat="tweet in tweetQueue track by $index">
+      <div ng-repeat="tweet in tweetQueue track by $index" class="tweet">
         <p class="username"><b> @{{ tweet.user }} </b></p>
-        <p> {{ tweet.tweet }}</p>
+        <p class="tweet"> {{ tweet.tweet }}</p>
         <br>
-      </span>
+      </div>
     </div>
 
   </div>
