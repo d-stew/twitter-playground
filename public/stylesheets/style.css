@@ -19,8 +19,8 @@ h3.label {
 #left-bar {
   position: fixed;
   left: 0;
-  min-width: 15%;
-  max-width: 15%;
+  min-width: 18%;
+  max-width: 18%;
   min-height: 80%;
   border-right: 1px solid white;
   padding: 0.25% 2% 0 2%;

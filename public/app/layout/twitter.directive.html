@@ -2,8 +2,8 @@
   <div class="row">
 
     <div id="left-bar" class="col-md-2">
-      <h3 class="label">TOP WORDS</h3>
-      <br><br>
+      <h3 class="label center-block">TOP HASHTAGS</h3>
+      <br>
       <p ng-repeat="tag in vm.tags">
         <span class="word" ng-bind="tag[0]"></span>
       </p>
@@ -24,8 +24,8 @@
     </div>
 
     <div id="right-bar" class="col-md-2">
-      <h3 class="label">LIVE TWEETS</h3>
-      <br><br>
+      <h3 class="label center-block">LIVE TWEETS</h3>
+      <br>
       <div ng-repeat="tweet in tweetQueue track by $index" class="tweet">
         <p class="username"><b> @{{ tweet.user }} </b></p>
         <p class="tweet"> {{ tweet.tweet }}</p>

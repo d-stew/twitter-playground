@@ -9,50 +9,42 @@
     function factory($http, $window) {
 
       return {
-        cloudData: getCloudData,
+        cloudData: getHashtagData,
         toneAnalyzer: getWatsonData
       }
 
-      function getCloudData(englishData) {
+      function getHashtagData(englishData) {
         // prep tweet data to be used in word cloud
         var words = englishData.split(" ");
         var wordObjects = [];
 
         // if not a filler word, assign to object and push into wordObjects array
-        var fillers = [
-                       "and","of","to","","&","on","-","the","in","be","by","for",
-                       "a","an","my","rt","i","is","but","me","you","not","with",
-                       "are","it","as","that","this","their","at","from","have",
-                       "there","will","all","like","or","up","what",".","+","was",
-                       "about","so","very","than","has","could","we","do","if",
-                       "still","~","our","first!","its","it's","can","some","says",
-                       "he","she","your","his","hers","him","her","too","said","sees",
-                       "say","when"
-                       ];
+        // var fillers = [
+        //                "and","of","to","","&","on","-","the","in","be","by","for",
+        //                "a","an","my","rt","i","is","but","me","you","not","with",
+        //                "are","it","as","that","this","their","at","from","have",
+        //                "there","will","all","like","or","up","what",".","+","was",
+        //                "about","so","very","than","has","could","we","do","if",
+        //                "still","~","our","first!","its","it's","can","some","says",
+        //                "he","she","your","his","hers","him","her","too","said","sees",
+        //                "say","when"
+        //                ];
 
         words.forEach(function (word) {
-          if (
-              isNaN(word) &&
-              !fillers.includes(word.toLowerCase()) &&
-              word.charAt(0) !== "@" &&
-              word.charAt(0) !== "&" &&
-              word.charAt(0) !== "\"" &&
-              !word.includes('http')
-              )
-            {
-              if(word.charAt(0) === "#") {
-                word = word.substring(1);
-              }
-              if(!word.charAt(word.length-1).match(/[a-z]/i)) {
-                word = word.slice(0,-1)
-              }
-              var wordObject = {};
-              wordObject.word = word;
-              wordObjects.push(wordObject);
+          // isolate hashtags
+          if(word.charAt(0) === "#") {
+
+            if(!word.charAt(word.length-1).match(/[a-z]/i)) {
+              word = word.slice(0,-1)
             }
+
+            var wordObject = {};
+            wordObject.word = word;
+            wordObjects.push(wordObject);
+          }
         });
 
-        // group by word, count instances
+        // group by hashtag, count instances
         var wordCount = d3.nest()
           .key(function(d) { return d.word; })
           .rollup(function(v) { return v.length; })
