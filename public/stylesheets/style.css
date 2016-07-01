@@ -47,6 +47,10 @@ h3.label {
 }
 
 /* Center Block*/
+#toneChart {
+  color: white;
+}
+
 div#main-block {
   color: white;
   text-align: center;

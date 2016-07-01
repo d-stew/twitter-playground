@@ -10,10 +10,10 @@
     </div>
     <div id="main-block" class="col-md-8 col-md-offset-2">
       <h3 class="label">TONE ANALYSIS</h3>
-      <canvas id="trump" class="chart chart-bar"
+      <canvas id="toneChart" class="chart chart-bar"
           chart-colours='colors' chart-legend="true"
           chart-data="chartData" chart-labels="labels"
-          chart-series="series">
+          chart-series="series" chart-options="options">
         </canvas>
       <span ng-repeat="tone in vm.toneData[0].tones">
         <p>{{ tone.tone_name }}: {{ tone.score }}</p>

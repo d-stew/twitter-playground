@@ -19,13 +19,18 @@
     var vm = this;
     var englishData;
 
-    // Chart labels
+    // chart labels
     $scope.labels = ['Anger','Disgust','Fear','Joy','Sadness'];
-    //chart colors
+    // chart colors
     $scope.colors = ['#7b8cfe','#fe7bc6','#7af7dd','#e98e53', '#bd99f2'];
-    $scope.series = ['English']
-    // Initial data values
-    $scope.chartData = [[0.444448, 0.145185, 0.952924, 0.032998, 0.44381]]
+    // chart series
+    $scope.series = ['English', 'French']
+    // initial data values
+    $scope.chartData = [[0.444448, 0.145185, 0.952924, 0.032998, 0.44381],[0.25, 0.33, 0.80, 0.05, 0.15]]
+    // chart options
+    $scope.options = {
+      fillColor: 'rgba(98, 33, 33, 0.9)'
+    }
 
     $scope.$on('updateData', function(event, newValue) {
       englishData = newValue;
