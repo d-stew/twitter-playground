@@ -31,10 +31,10 @@
     $scope.series = ['English', 'French', 'Spanish', 'Arabic', 'Portguese']
     // initial data values
     $scope.chartData = [
-      [0.444448, 0.145185, 0.952924, 0.032998, 0.44381],
-      [0.25, 0.33, 0.80, 0.05, 0.15],
-      [0.15, 0.3, 0.66, 0.12, 0.24],
+      [0.25, 0.25, 0.25, 0.25, 0.25],
       [0.01, 0.01, 0.01, 0.01, 0.01],
+      [0.01, 0.01, 0.01, 0.01, 0.01],
+      [0.0011, 0.01, 0.01, 0.01, 0.01],
       [0.01, 0.01, 0.01, 0.01, 0.01]
     ]
     // chart options
@@ -48,42 +48,53 @@
     })
     $scope.$on('updateFrenchData', function(event, newValue) {
       frenchData = newValue;
-      console.log(frenchData);
     })
     $scope.$on('updateSpanishData', function(event, newValue) {
       spanishData = newValue;
-      console.log(spanishData);
     })
     $scope.$on('updateArabicData', function(event, newValue) {
       arabicData = newValue;
-      console.log(arabicData);
     })
     $scope.$on('updatePortugueseData', function(event, newValue) {
       portugueseData = newValue;
-      console.log(portugueseData)
     })
 
     // refresh wordcloud and tone data every 5 seconds
     $interval(function() {
-      getData();
-      toneAnalyzer();
+      getHashtagData();
+      englishAnalyzer();
+      // frenchAnalyzer();
     }, 5000)
 
-    function getData() {
-      vm.tags = twitterService.cloudData(englishData);
+    function getHashtagData() {
+      vm.tags = twitterService.hashtagData(englishData);
     }
 
-    function toneAnalyzer() {
-      twitterService.toneAnalyzer(englishData)
+    function englishAnalyzer() {
+      twitterService.englishAnalyzer(englishData)
       .then(function(toneData) {
-        vm.toneData = toneData
-        $scope.chartData[0][0] = vm.toneData[0].tones[0].score;
-        $scope.chartData[0][1] = vm.toneData[0].tones[1].score;
-        $scope.chartData[0][2] = vm.toneData[0].tones[2].score;
-        $scope.chartData[0][3] = vm.toneData[0].tones[3].score;
-        $scope.chartData[0][4] = vm.toneData[0].tones[4].score;
+        vm.englishToneData = toneData
+        $scope.chartData[0][0] = vm.englishToneData[0].tones[0].score;
+        $scope.chartData[0][1] = vm.englishToneData[0].tones[1].score;
+        $scope.chartData[0][2] = vm.englishToneData[0].tones[2].score;
+        $scope.chartData[0][3] = vm.englishToneData[0].tones[3].score;
+        $scope.chartData[0][4] = vm.englishToneData[0].tones[4].score;
       })
     }
+
+    // function frenchAnalyzer() {
+    //   console.log('French - Directive')
+    //   if (!frenchData.length) return;
+    //   twitterService.frenchAnalyzer(frenchData)
+    //   .then(function(toneData) {
+    //     vm.frenchToneData = toneData
+    //     $scope.chartData[1][0] = vm.frenchToneData[0].tones[0].score;
+    //     $scope.chartData[1][1] = vm.frenchToneData[0].tones[1].score;
+    //     $scope.chartData[1][2] = vm.frenchToneData[0].tones[2].score;
+    //     $scope.chartData[1][3] = vm.frenchToneData[0].tones[3].score;
+    //     $scope.chartData[1][4] = vm.frenchToneData[0].tones[4].score;
+    //   })
+    // }
   }
 
 }());

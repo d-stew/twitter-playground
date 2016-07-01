@@ -9,8 +9,9 @@
     function factory($http, $window) {
 
       return {
-        cloudData: getHashtagData,
-        toneAnalyzer: getWatsonData
+        hashtagData: getHashtagData,
+        englishAnalyzer: englishAnalyzer,
+        frenchAnalyzer: frenchAnalyzer
       }
 
       function getHashtagData(englishData) {
@@ -18,26 +19,12 @@
         var words = englishData.split(" ");
         var wordObjects = [];
 
-        // if not a filler word, assign to object and push into wordObjects array
-        // var fillers = [
-        //                "and","of","to","","&","on","-","the","in","be","by","for",
-        //                "a","an","my","rt","i","is","but","me","you","not","with",
-        //                "are","it","as","that","this","their","at","from","have",
-        //                "there","will","all","like","or","up","what",".","+","was",
-        //                "about","so","very","than","has","could","we","do","if",
-        //                "still","~","our","first!","its","it's","can","some","says",
-        //                "he","she","your","his","hers","him","her","too","said","sees",
-        //                "say","when"
-        //                ];
-
         words.forEach(function (word) {
           // isolate hashtags
           if(word.charAt(0) === "#") {
-
             if(!word.charAt(word.length-1).match(/[a-z]/i)) {
               word = word.slice(0,-1)
             }
-
             var wordObject = {};
             wordObject.word = word;
             wordObjects.push(wordObject);
@@ -64,13 +51,21 @@
 
         tags = tags.slice(0,15);
         return tags;
-      }n
+      }
 
-      function getWatsonData(englishData) {
+      function englishAnalyzer(englishData) {
         return $http.post('http://localhost:3000/watson/english', {englishData})
         .then(function(response) {
           return response.data.document_tone.tone_categories
         })
+      }
+
+      function frenchAnalyzer(frenchData) {
+        console.log('French - Factory')
+        return $http.post('http://localhost:3000/watson/french', {frenchData})
+        // .then(function(response) {
+        //   return response.data.document_tone.tone_categories
+        // })
       }
 
     }

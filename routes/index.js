@@ -23,16 +23,71 @@ router.get('/', function(req, res, next) {
 
 router.post('/watson/english', function(req, res, next) {
   console.log('Testing');
-  // var data = req.body.englishData;
-  //
-  // tone_analyzer.tone({ text: data },
-  // function(err, tone) {
-  //   if (err)
-  //     console.log(err);
-  //   else
-  //     res.json(tone, null, 2);
-  // });
+  var data = req.body.englishData;
+
+  tone_analyzer.tone({ text: data },
+  function(err, tone) {
+    if (err)
+      console.log(err);
+    else
+      res.json(tone, null, 2);
+  });
 })
+
+// router.post('/watson/french', function(req, res, next) {
+//   var data = req.body.frenchData;
+//   var translation;
+//
+//   language_translator.translate({
+//     text: data, source : 'fr', target: 'en' },
+//     function (err, translation) {
+//       if (err)
+//       console.log('error:', err);
+//       else {
+//         translation = translation.translations[0].translation;
+//         console.log(translation);
+//       }
+//     }
+//   )
+//
+//   if(translation) {
+//     tone_analyzer.tone({ text: translation },
+//     function(err, tone) {
+//       if (err)
+//         console.log(err);
+//       else
+//         console.log(tone);
+//     });
+//   }
+//
+// })
+
+// router.post('/watson/french', function(req, res, next) {
+//   var data = req.body.frenchData;
+//   var toneData;
+//
+//   function translate() {
+//     return new Promise(function(resolve, reject) {
+//       resolve(language_translator.translate({
+//         text: data, source : 'fr', target: 'en' },
+//         function (err, translation) {
+//           if (err)
+//             console.log('error:', err);
+//           else {
+//             toneData = translation.translations[0].translation;
+//             return toneData;
+//           }
+//         }
+//       ))
+//     })
+//   }
+//
+//   translate().then(function(result) {
+//     console.log('RESULTS IN THEN', result);
+//   })
+//
+//
+// })
 
 
 module.exports = router;
