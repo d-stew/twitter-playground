@@ -30,6 +30,8 @@
     $scope.englishData = "";
     $scope.frenchData = "";
     $scope.spanishData = "";
+    $scope.arabicData = "";
+    $scope.portugueseData = "";
 
     // parse data on new tweet
     socket.on('newTweet', function (tweet) {
@@ -54,6 +56,12 @@
       if (lang === "es") {
         $scope.spanishData += tweet.text + " ";
       }
+      if (lang === "ar") {
+        $scope.arabicData += tweet.text + " ";
+      }
+      if (lang === "pt") {
+        $scope.portugueseData += tweet.text + " ";
+      }
 
       // check source for geolocation
       if (coords) {
@@ -72,6 +80,8 @@
       $rootScope.$broadcast('updateEnglishData', $scope.englishData)
       $rootScope.$broadcast('updateFrenchData', $scope.frenchData)
       $rootScope.$broadcast('updateSpanishData', $scope.spanishData)
+      $rootScope.$broadcast('updateArabicData', $scope.arabicData)
+      $rootScope.$broadcast('updatePortugueseData', $scope.portugueseData)
     });
 
   }

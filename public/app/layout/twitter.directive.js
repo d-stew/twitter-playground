@@ -20,15 +20,23 @@
     var englishData;
     var frenchData;
     var spanishData;
+    var arabicData;
+    var portugueseData;
 
     // chart labels
     $scope.labels = ['Anger','Disgust','Fear','Joy','Sadness'];
     // chart colors
     $scope.colors = ['#7b8cfe','#fe7bc6','#7af7dd','#e98e53', '#bd99f2'];
     // chart series
-    $scope.series = ['English', 'French', 'Spanish']
+    $scope.series = ['English', 'French', 'Spanish', 'Arabic', 'Portguese']
     // initial data values
-    $scope.chartData = [[0.444448, 0.145185, 0.952924, 0.032998, 0.44381],[0.25, 0.33, 0.80, 0.05, 0.15],[0.15, 0.3, 0.66, 0.12, 0.24]]
+    $scope.chartData = [
+      [0.444448, 0.145185, 0.952924, 0.032998, 0.44381],
+      [0.25, 0.33, 0.80, 0.05, 0.15],
+      [0.15, 0.3, 0.66, 0.12, 0.24],
+      [0.54, 0.12, 0.92, 0.01, 0.42],
+      [0.34, 0.51, 0.72, 0.23, 0.51]
+    ]
     // chart options
     $scope.options = {
       tooltipFontColor: '#FFF'
@@ -42,9 +50,17 @@
       frenchData = newValue;
       console.log(frenchData);
     })
-    $scope.$on('updateSpanishData', function(Event, newValue) {
+    $scope.$on('updateSpanishData', function(event, newValue) {
       spanishData = newValue;
       console.log(spanishData);
+    })
+    $scope.$on('updateArabicData', function(event, newValue) {
+      arabicData = newValue;
+      console.log(arabicData);
+    })
+    $scope.$on('updatePortugueseData', function(event, newValue) {
+      portugueseData = newValue;
+      console.log(portugueseData)
     })
 
     // refresh wordcloud and tone data every 5 seconds
