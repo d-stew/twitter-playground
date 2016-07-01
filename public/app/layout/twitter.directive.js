@@ -18,6 +18,8 @@
   function twitterController($scope, twitterService, $interval) {
     var vm = this;
     var englishData;
+    var frenchData;
+    var spanishData;
 
     // chart labels
     $scope.labels = ['Anger','Disgust','Fear','Joy','Sadness'];
@@ -32,10 +34,20 @@
       tooltipFontColor: '#FFF'
     }
 
-    $scope.$on('updateData', function(event, newValue) {
+    // auto-update data for each language
+    $scope.$on('updateEnglishData', function(event, newValue) {
       englishData = newValue;
     })
+    $scope.$on('updateFrenchData', function(event, newValue) {
+      frenchData = newValue;
+      console.log(frenchData);
+    })
+    $scope.$on('updateSpanishData', function(Event, newValue) {
+      spanishData = newValue;
+      console.log(spanishData);
+    })
 
+    // refresh wordcloud and tone data every 5 seconds
     $interval(function() {
       getData();
       toneAnalyzer();
@@ -54,7 +66,6 @@
         $scope.chartData[0][2] = vm.toneData[0].tones[2].score;
         $scope.chartData[0][3] = vm.toneData[0].tones[3].score;
         $scope.chartData[0][4] = vm.toneData[0].tones[4].score;
-        console.log($scope.chartData);
       })
     }
   }

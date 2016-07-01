@@ -9,13 +9,8 @@
     function factory($http, $window) {
 
       return {
-        test: test,
         cloudData: getCloudData,
         toneAnalyzer: getWatsonData
-      }
-
-      function test() {
-        return "test"
       }
 
       function getCloudData(englishData) {
@@ -80,7 +75,7 @@
       }n
 
       function getWatsonData(englishData) {
-        return $http.post('http://localhost:3000/watson', {englishData})
+        return $http.post('http://localhost:3000/watson/english', {englishData})
         .then(function(response) {
           return response.data.document_tone.tone_categories
         })

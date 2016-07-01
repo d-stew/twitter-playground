@@ -28,7 +28,10 @@
 
     $scope.coordinates = [];
     $scope.englishData = "";
+    $scope.frenchData = "";
+    $scope.spanishData = "";
 
+    // parse data on new tweet
     socket.on('newTweet', function (tweet) {
       $scope.tweet = tweet.text
       $scope.user = tweet.user.screen_name
@@ -39,9 +42,17 @@
       var place = tweet.place
       var geo = tweet.geo
 
-      // push tweet into cloudText
+      // if English, push into englishData
       if (lang === "en") {
-        $scope.englishData += tweet.text + " "
+        $scope.englishData += tweet.text + " ";
+      }
+      // if French, push into frenchData
+      if (lang === "fr") {
+        $scope.frenchData += tweet.text + " ";
+      }
+      // if Spanish, push into spanishData
+      if (lang === "es") {
+        $scope.spanishData += tweet.text + " ";
       }
 
       // check source for geolocation
@@ -58,7 +69,9 @@
         $scope.coordinates.push(geo.coordinates)
       }
 
-      $rootScope.$broadcast('updateData', $scope.englishData)
+      $rootScope.$broadcast('updateEnglishData', $scope.englishData)
+      $rootScope.$broadcast('updateFrenchData', $scope.frenchData)
+      $rootScope.$broadcast('updateSpanishData', $scope.spanishData)
     });
 
   }

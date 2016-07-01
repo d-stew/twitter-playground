@@ -9,13 +9,19 @@ var tone_analyzer = watson.tone_analyzer({
   version_date: '2016-05-19'
 });
 
+var language_translator = watson.language_translator({
+  username: process.env.TRANSLATOR_USERNAME,
+  password: process.env.TRANSLATOR_PASSWORD,
+  version: 'v2'
+});
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/watson', function(req, res, next) {
+router.post('/watson/english', function(req, res, next) {
   console.log('Testing');
   // var data = req.body.englishData;
   //
