@@ -45,6 +45,9 @@ h3.label {
   font-family: 'Quicksand', sans-serif;
   color: white;
 }
+p.username {
+  color: rgb(102, 232, 255);
+}
 
 /* Center Block*/
 #toneChart {

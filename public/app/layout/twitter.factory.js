@@ -27,7 +27,7 @@
                        "about","so","very","than","has","could","we","do","if",
                        "still","~","our","first!","its","it's","can","some","says",
                        "he","she","your","his","hers","him","her","too","said","sees",
-                       "say"
+                       "say","when"
                        ];
 
         words.forEach(function (word) {

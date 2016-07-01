@@ -18,7 +18,7 @@ var client = new Twitter({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
-var hashtags = '#rio2016';
+var hashtags = '#tbt';
 
 client.stream('statuses/filter', {track: hashtags}, function(stream) {
   stream.on('data', function(tweet) {

@@ -26,6 +26,7 @@
   controller.$inject = ['$scope', '$rootScope', 'socket'];
   function controller($scope, $rootScope, socket) {
 
+    $scope.tweetQueue = []
     $scope.coordinates = [];
     $scope.englishData = "";
     $scope.frenchData = "";
@@ -35,8 +36,17 @@
 
     // parse data on new tweet
     socket.on('newTweet', function (tweet) {
+
       $scope.tweet = tweet.text
       $scope.user = tweet.user.screen_name
+
+      // push new tweet into tweet queue
+      if ($scope.tweetQueue.length < 3) {
+        $scope.tweetQueue.unshift({user: $scope.user, tweet: $scope.tweet})
+      } else {
+        $scope.tweetQueue.pop();
+        $scope.tweetQueue.unshift({user: $scope.user, tweet: $scope.tweet});
+      }
 
       // parse language and location
       var lang = tweet.lang
@@ -44,15 +54,13 @@
       var place = tweet.place
       var geo = tweet.geo
 
-      // if English, push into englishData
+      // distribute based on language
       if (lang === "en") {
         $scope.englishData += tweet.text + " ";
       }
-      // if French, push into frenchData
       if (lang === "fr") {
         $scope.frenchData += tweet.text + " ";
       }
-      // if Spanish, push into spanishData
       if (lang === "es") {
         $scope.spanishData += tweet.text + " ";
       }
@@ -77,6 +85,7 @@
         $scope.coordinates.push(geo.coordinates)
       }
 
+      // broadcast data updates
       $rootScope.$broadcast('updateEnglishData', $scope.englishData)
       $rootScope.$broadcast('updateFrenchData', $scope.frenchData)
       $rootScope.$broadcast('updateSpanishData', $scope.spanishData)
