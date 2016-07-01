@@ -77,10 +77,10 @@
 
         tags = tags.slice(0,15);
         return tags;
-      }
+      }n
 
       function getWatsonData(englishData) {
-        return $http.post('http://twang.herokuapp.com/watson', {englishData})
+        return $http.post('http://localhost:3000/watson', {englishData})
         .then(function(response) {
           return response.data.document_tone.tone_categories
         })

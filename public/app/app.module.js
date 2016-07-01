@@ -26,11 +26,6 @@
   controller.$inject = ['$scope', '$rootScope', 'socket'];
   function controller($scope, $rootScope, socket) {
 
-    // Chart labels
-    $scope.labels = ['Anger','Disgust','Fear','Joy','Sadness'];
-    // Initial data values
-    $scope.chartData = [0,0,0,0,0]
-    
     $scope.coordinates = [];
     $scope.englishData = "";
 

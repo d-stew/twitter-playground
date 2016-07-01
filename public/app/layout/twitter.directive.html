@@ -8,12 +8,13 @@
         <span class="word" ng-bind="tag[0]"></span>
       </p>
     </div>
-
     <div id="main-block" class="col-md-8 col-md-offset-2">
       <h3 class="label">TONE ANALYSIS</h3>
-      <!-- <canvas id="base" class="chart-horizontal-bar"
-        chart-data="chartData" chart-labels="labels" >
-      </canvas> -->
+      <canvas id="trump" class="chart chart-bar"
+          chart-colours='colors' chart-legend="true"
+          chart-data="chartData" chart-labels="labels"
+          chart-series="series">
+        </canvas>
       <span ng-repeat="tone in vm.toneData[0].tones">
         <p>{{ tone.tone_name }}: {{ tone.score }}</p>
       </span>

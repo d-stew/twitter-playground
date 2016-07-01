@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/watson', function(req, res, next) {
-  // console.log('Testing');
+  console.log('Testing');
   var data = req.body.englishData;
 
   tone_analyzer.tone({ text: data },
