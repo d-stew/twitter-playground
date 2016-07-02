@@ -17,7 +17,6 @@ var language_translator = watson.language_translator({
 
 router.post('/watson/translate', function(req, res, next) {
   var data = req.body.frenchData;
-
   language_translator.translate({
     text: data, source : 'fr', target: 'en' },
     function (err, translation) {
@@ -26,7 +25,6 @@ router.post('/watson/translate', function(req, res, next) {
       else {
         var translation = translation.translations[0].translation;
         res.json(translation, null, 2)
-        // console.log(translation);
       }
     }
   )
@@ -34,7 +32,6 @@ router.post('/watson/translate', function(req, res, next) {
 
 router.post('/watson/analyze', function(req, res, next) {
   var data = req.body.translation;
-
   tone_analyzer.tone({ text: data },
   function(err, tone) {
     if (err)

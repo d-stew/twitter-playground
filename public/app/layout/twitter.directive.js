@@ -31,9 +31,9 @@
     $scope.series = ['English', 'French', 'Spanish']
     // initial data values
     $scope.chartData = [
-      [0.25, 0.25, 0.25, 0.25, 0.25],
-      [0.25, 0.25, 0.25, 0.25, 0.25],
-      [0.25, 0.25, 0.25, 0.25, 0.25]
+      [0.01, 0.01, 0.01, 0.01, 0.01],
+      [0.01, 0.01, 0.01, 0.01, 0.01],
+      [0.01, 0.01, 0.01, 0.01, 0.01]
     ]
 
     // auto-update data for each language
