@@ -54,7 +54,7 @@
       }
 
       function englishAnalyzer(englishData) {
-        return $http.post('http://localhost:3000/watson/english', {englishData})
+        return $http.post('http://localhost:3000/english/watson/analyze', {englishData})
         .then(function(response) {
           return response.data.document_tone.tone_categories;
         })
@@ -62,10 +62,10 @@
 
       function frenchAnalyzer(frenchData) {
         console.log('French - Factory')
-        return $http.post('http://localhost:3000/watson/french/translate', {frenchData})
+        return $http.post('http://localhost:3000/french/watson/translate', {frenchData})
         .then(function(response) {
           var translation = response.data
-          return $http.post('http://localhost:3000/watson/french/analyze', {translation})
+          return $http.post('http://localhost:3000/french/watson/analyze', {translation})
           .then(function(response) {
             return response.data.document_tone.tone_categories;
           })
