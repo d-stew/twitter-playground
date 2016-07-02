@@ -13,6 +13,8 @@ h3.label {
   font-family: 'Raleway', sans-serif;
   color: rgb(111, 166, 238);
   font-size: 22px;
+  padding-left: 0;
+  margin-bottom: 10px;
 }
 
 /* Left Bar / Word Cloud*/

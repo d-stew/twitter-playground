@@ -23,15 +23,15 @@ router.get('/', function(req, res, next) {
 
 router.post('/watson/english', function(req, res, next) {
   console.log('Testing');
-  var data = req.body.englishData;
-
-  tone_analyzer.tone({ text: data },
-  function(err, tone) {
-    if (err)
-      console.log(err);
-    else
-      res.json(tone, null, 2);
-  });
+  // var data = req.body.englishData;
+  //
+  // tone_analyzer.tone({ text: data },
+  // function(err, tone) {
+  //   if (err)
+  //     console.log(err);
+  //   else
+  //     res.json(tone, null, 2);
+  // });
 })
 
 // router.post('/watson/french', function(req, res, next) {

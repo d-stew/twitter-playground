@@ -34,7 +34,7 @@
       [0.25, 0.25, 0.25, 0.25, 0.25],
       [0.01, 0.01, 0.01, 0.01, 0.01],
       [0.01, 0.01, 0.01, 0.01, 0.01],
-      [0.0011, 0.01, 0.01, 0.01, 0.01],
+      [0.01, 0.01, 0.01, 0.01, 0.01],
       [0.01, 0.01, 0.01, 0.01, 0.01]
     ]
     // chart options
@@ -70,6 +70,7 @@
       vm.tags = twitterService.hashtagData(englishData);
     }
 
+    // pass english data to watson
     function englishAnalyzer() {
       twitterService.englishAnalyzer(englishData)
       .then(function(toneData) {
