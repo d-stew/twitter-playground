@@ -56,16 +56,20 @@
       function englishAnalyzer(englishData) {
         return $http.post('http://localhost:3000/watson/english', {englishData})
         .then(function(response) {
-          return response.data.document_tone.tone_categories
+          return response.data.document_tone.tone_categories;
         })
       }
 
       function frenchAnalyzer(frenchData) {
         console.log('French - Factory')
-        return $http.post('http://localhost:3000/watson/french', {frenchData})
-        // .then(function(response) {
-        //   return response.data.document_tone.tone_categories
-        // })
+        return $http.post('http://localhost:3000/watson/french/translate', {frenchData})
+        .then(function(response) {
+          var translation = response.data
+          return $http.post('http://localhost:3000/watson/french/analyze', {translation})
+          .then(function(response) {
+            return response.data.document_tone.tone_categories;
+          })
+        })
       }
 
     }
