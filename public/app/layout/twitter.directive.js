@@ -32,7 +32,7 @@
     // initial data values
     $scope.chartData = [
       [0.25, 0.25, 0.25, 0.25, 0.25],
-      [0.01, 0.01, 0.01, 0.01, 0.01],
+      [0.25, 0.25, 0.25, 0.25, 0.25],
       [0.01, 0.01, 0.01, 0.01, 0.01],
       [0.01, 0.01, 0.01, 0.01, 0.01],
       [0.01, 0.01, 0.01, 0.01, 0.01]
@@ -63,7 +63,7 @@
     $interval(function() {
       getHashtagData();
       englishAnalyzer();
-      // frenchAnalyzer();
+      frenchAnalyzer();
     }, 5000)
 
     function getHashtagData() {
@@ -83,19 +83,18 @@
       })
     }
 
-    // function frenchAnalyzer() {
-    //   console.log('French - Directive')
-    //   if (!frenchData.length) return;
-    //   twitterService.frenchAnalyzer(frenchData)
-    //   .then(function(toneData) {
-    //     vm.frenchToneData = toneData
-    //     $scope.chartData[1][0] = vm.frenchToneData[0].tones[0].score;
-    //     $scope.chartData[1][1] = vm.frenchToneData[0].tones[1].score;
-    //     $scope.chartData[1][2] = vm.frenchToneData[0].tones[2].score;
-    //     $scope.chartData[1][3] = vm.frenchToneData[0].tones[3].score;
-    //     $scope.chartData[1][4] = vm.frenchToneData[0].tones[4].score;
-    //   })
-    // }
+    function frenchAnalyzer() {
+      if (!frenchData.length) return;
+      twitterService.frenchAnalyzer(frenchData)
+      .then(function(toneData) {
+        vm.frenchToneData = toneData
+        $scope.chartData[1][0] = vm.frenchToneData[0].tones[0].score;
+        $scope.chartData[1][1] = vm.frenchToneData[0].tones[1].score;
+        $scope.chartData[1][2] = vm.frenchToneData[0].tones[2].score;
+        $scope.chartData[1][3] = vm.frenchToneData[0].tones[3].score;
+        $scope.chartData[1][4] = vm.frenchToneData[0].tones[4].score;
+      })
+    }
   }
 
 }());
