@@ -11,7 +11,39 @@
       return {
         hashtagData: getHashtagData,
         englishAnalyzer: englishAnalyzer,
-        frenchAnalyzer: frenchAnalyzer
+        frenchAnalyzer: frenchAnalyzer,
+        spanishAnalyzer: spanishAnalyzer
+      }
+
+      function englishAnalyzer(englishData) {
+        return $http.post('http://localhost:3000/english/watson/analyze', {englishData})
+        .then(function(response) {
+          return response.data.document_tone.tone_categories;
+        })
+      }
+
+      function frenchAnalyzer(frenchData) {
+        console.log('French - Factory')
+        return $http.post('http://localhost:3000/french/watson/translate', {frenchData})
+        .then(function(response) {
+          var translation = response.data
+          return $http.post('http://localhost:3000/french/watson/analyze', {translation})
+          .then(function(response) {
+            return response.data.document_tone.tone_categories;
+          })
+        })
+      }
+
+      function spanishAnalyzer(spanishData) {
+        console.log('Spanish - Factory')
+        return $http.post('http://localhost:3000/spanish/watson/translate', {spanishData})
+        .then(function(response) {
+          var translation = response.data
+          return $http.post('http://localhost:3000/spanish/watson/analyze', {translation})
+          .then(function(response) {
+            return response.data.document_tone.tone_categories;
+          })
+        })
       }
 
       function getHashtagData(englishData) {
@@ -51,25 +83,6 @@
 
         tags = tags.slice(0,15);
         return tags;
-      }
-
-      function englishAnalyzer(englishData) {
-        return $http.post('http://localhost:3000/english/watson/analyze', {englishData})
-        .then(function(response) {
-          return response.data.document_tone.tone_categories;
-        })
-      }
-
-      function frenchAnalyzer(frenchData) {
-        console.log('French - Factory')
-        return $http.post('http://localhost:3000/french/watson/translate', {frenchData})
-        .then(function(response) {
-          var translation = response.data
-          return $http.post('http://localhost:3000/french/watson/analyze', {translation})
-          .then(function(response) {
-            return response.data.document_tone.tone_categories;
-          })
-        })
       }
 
     }

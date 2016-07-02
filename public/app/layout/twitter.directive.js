@@ -26,21 +26,15 @@
     // chart labels
     $scope.labels = ['Anger','Disgust','Fear','Joy','Sadness'];
     // chart colors
-    $scope.colors = ['#7b8cfe','#fe7bc6','#7af7dd','#e98e53', '#bd99f2'];
+    $scope.colors = ['#7b8cfe','#fe7bc6','#7af7dd'];
     // chart series
-    $scope.series = ['English', 'French', 'Spanish', 'Arabic', 'Portguese']
+    $scope.series = ['English', 'French', 'Spanish']
     // initial data values
     $scope.chartData = [
       [0.25, 0.25, 0.25, 0.25, 0.25],
       [0.25, 0.25, 0.25, 0.25, 0.25],
-      [0.01, 0.01, 0.01, 0.01, 0.01],
-      [0.01, 0.01, 0.01, 0.01, 0.01],
-      [0.01, 0.01, 0.01, 0.01, 0.01]
+      [0.25, 0.25, 0.25, 0.25, 0.25]
     ]
-    // chart options
-    $scope.options = {
-      tooltipFontColor: '#FFF'
-    }
 
     // auto-update data for each language
     $scope.$on('updateEnglishData', function(event, newValue) {
@@ -64,6 +58,7 @@
       getHashtagData();
       englishAnalyzer();
       frenchAnalyzer();
+      spanishAnalyzer();
     }, 5000)
 
     function getHashtagData() {
@@ -83,6 +78,7 @@
       })
     }
 
+    // pass french data to watson
     function frenchAnalyzer() {
       if (!frenchData.length) return;
       twitterService.frenchAnalyzer(frenchData)
@@ -95,6 +91,21 @@
         $scope.chartData[1][4] = vm.frenchToneData[0].tones[4].score;
       })
     }
+
+    // pass spanish data to watson
+    function spanishAnalyzer() {
+      if (!spanishData.length) return;
+      twitterService.spanishAnalyzer(spanishData)
+      .then(function(toneData) {
+        vm.spanishToneData = toneData
+        $scope.chartData[2][0] = vm.spanishToneData[0].tones[0].score;
+        $scope.chartData[2][1] = vm.spanishToneData[0].tones[1].score;
+        $scope.chartData[2][2] = vm.spanishToneData[0].tones[2].score;
+        $scope.chartData[2][3] = vm.spanishToneData[0].tones[3].score;
+        $scope.chartData[2][4] = vm.spanishToneData[0].tones[4].score;
+      })
+    }
+
   }
 
 }());
