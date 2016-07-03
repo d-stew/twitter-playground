@@ -19,11 +19,45 @@
     <!-- MAIN BLOCK -->
     <div id="main-block" class="col-md-8 col-md-offset-2">
       <h3 class="label">TONE ANALYSIS</h3>
-      <canvas id="toneChart" class="chart chart-bar"
-          chart-colours='colors' chart-legend="true"
-          chart-data="chartData" chart-labels="labels"
-          chart-series="series" chart-options="options">
-      </canvas>
+      <br>
+      <span class='text-center'>
+        <a href="#" ng-click="vm.setDisplay('language')">By Language</a>
+        |
+        <a href="#" ng-click="vm.setDisplay('emotion')">By Emotion</a>
+      </span>
+
+      <div class='bar-chart' ng-show="vm.display === 'emotion'">
+        <canvas id="toneChart" class="chart chart-bar"
+            chart-colours='colors' chart-legend="true"
+            chart-data="chartData" chart-labels="labels"
+            chart-series="series" chart-options="options">
+        </canvas>
+      </div>
+
+      <div class='row radar-charts' ng-show="vm.display === 'language'">
+        <div class='col-md-4'>
+          <canvas id='radar' class='chart chart-radar'
+            chart-colours='colors' chart-legend='true'
+            chart-data='englishRadar' chart-labels='labels'
+            chart-series='series' chart-options='options'>
+          </canvas>
+        </div>
+        <div class='col-md-4'>
+          <canvas id='radar' class='chart chart-radar'
+            chart-colours='frenchRadarColors' chart-legend='true'
+            chart-data='frenchRadar' chart-labels='labels'
+            chart-series='frenchRadarSeries' chart-options='options'>
+          </canvas>
+        </div>
+        <div class='col-md-4'>
+          <canvas id='radar' class='chart chart-radar'
+            chart-colours='spanishRadarColors' chart-legend='true'
+            chart-data='spanishRadar' chart-labels='labels'
+            chart-series='spanishRadarSeries' chart-options='options'>
+          </canvas>
+        </div>
+      </div>
+
       <br><br>
       <h3 class="label">TWEET LOCATIONS</h3>
       <p>{{ locations }}</p>
