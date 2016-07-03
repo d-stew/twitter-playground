@@ -56,9 +56,9 @@
     // refresh wordcloud and tone data every 5 seconds
     $interval(function() {
       getHashtagData();
-      englishAnalyzer();
-      frenchAnalyzer();
-      spanishAnalyzer();
+      // englishAnalyzer();
+      // frenchAnalyzer();
+      // spanishAnalyzer();
     }, 5000)
 
     function getHashtagData() {

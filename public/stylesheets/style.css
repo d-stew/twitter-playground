@@ -9,6 +9,20 @@ a {
   color: #00B7FF;
 }
 
+/* NAVBAR */
+div.navbox {
+  margin-left: 1%;
+}
+navbar {
+  background-color: rgb(111, 166, 238) !important;
+}
+a.navbar-brand {
+  color: white !important;
+  font-family: 'Raleway', sans-serif;
+  font-size: 28px;
+  text-align: left;
+}
+
 h3.label {
   font-family: 'Raleway', sans-serif;
   color: rgb(111, 166, 238);
