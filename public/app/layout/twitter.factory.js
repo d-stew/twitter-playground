@@ -81,7 +81,7 @@
           tags.push([d.key,parseInt(d.values)]);
         });
 
-        tags = tags.slice(0,15);
+        tags = tags.slice(0,8);
         return tags;
       }
 

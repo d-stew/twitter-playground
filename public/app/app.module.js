@@ -28,6 +28,7 @@
 
     $scope.tweetQueue = []
     $scope.coordinates = [];
+    $scope.locations = [];
     $scope.englishData = "";
     $scope.frenchData = "";
     $scope.spanishData = "";
@@ -78,6 +79,7 @@
       }
       if (place) {
         console.log("Place: ", place.bounding_box.coordinates[0][0]);
+        $scope.locations.push(place.full_name);
         $scope.coordinates.push(place.bounding_box.coordinates[0][0])
       }
       if (geo) {
