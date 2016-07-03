@@ -1,13 +1,22 @@
 <div class="container-fluid">
   <div class="row">
 
+    <!-- LEFT BAR -->
     <div id="left-bar" class="col-md-2">
       <h3 class="label">TOP HASHTAGS</h3>
       <br>
       <p ng-repeat="tag in vm.tags">
         <span class="word" ng-bind="tag[0]"></span>
       </p>
+
+      <h3 class="label">TOP LOCATIONS</h3>
+      <br>
+      <p ng-repeat="location in vm.topLocations">
+        <span class="location" ng-bind="location[0]"></span>
+      </p>
     </div>
+
+    <!-- MAIN BLOCK -->
     <div id="main-block" class="col-md-8 col-md-offset-2">
       <h3 class="label">TONE ANALYSIS</h3>
       <canvas id="toneChart" class="chart chart-bar"
@@ -15,14 +24,12 @@
           chart-data="chartData" chart-labels="labels"
           chart-series="series" chart-options="options">
       </canvas>
-      <span ng-repeat="tone in vm.toneData[0].tones">
-        <p>{{ tone.tone_name }}: {{ tone.score }}</p>
-      </span>
       <br><br>
       <h3 class="label">TWEET LOCATIONS</h3>
       <p>{{ locations }}</p>
     </div>
 
+    <!-- RIGHT BAR -->
     <div id="right-bar" class="col-md-2">
       <h3 class="label">LIVE TWEETS</h3>
       <br>

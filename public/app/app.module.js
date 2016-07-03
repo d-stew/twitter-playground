@@ -93,6 +93,7 @@
       $rootScope.$broadcast('updateSpanishData', $scope.spanishData)
       $rootScope.$broadcast('updateArabicData', $scope.arabicData)
       $rootScope.$broadcast('updatePortugueseData', $scope.portugueseData)
+      $rootScope.$broadcast('updateLocations', $scope.locations)
     });
 
   }

@@ -10,6 +10,7 @@
 
       return {
         hashtagData: getHashtagData,
+        locationData: getLocationData,
         englishAnalyzer: englishAnalyzer,
         frenchAnalyzer: frenchAnalyzer,
         spanishAnalyzer: spanishAnalyzer
@@ -47,12 +48,12 @@
       }
 
       function getHashtagData(englishData) {
-        // prep tweet data to be used in word cloud
+        // split into individual words
         var words = englishData.split(" ");
         var wordObjects = [];
 
+        // isolate hashtags
         words.forEach(function (word) {
-          // isolate hashtags
           if(word.charAt(0) === "#") {
             if(!word.charAt(word.length-1).match(/[a-z]/i)) {
               word = word.slice(0,-1)
@@ -74,15 +75,47 @@
           return b.values - a.values;
         });
 
-        // format data for word cloud
+        // format data
         var tags = [];
-
         wordCount.forEach(function(d) {
           tags.push([d.key,parseInt(d.values)]);
         });
 
+        // return top 10 hashtags
         tags = tags.slice(0,8);
         return tags;
+      }
+
+      function getLocationData(locations) {
+        var locationObjects = [];
+
+        // isolate locations
+        locations.forEach(function (location) {
+          var locationObject = {};
+          locationObject.location = location;
+          locationObjects.push(locationObject);
+        });
+
+        // group by location, count instances
+        var locationCount = d3.nest()
+          .key(function(d) { return d.location; })
+          .rollup(function(v) { return v.length; })
+          .entries(locationObjects);
+
+        // sort by count
+        locationCount.sort(function(a,b) {
+          return b.values - a.values;
+        });
+
+        // format data
+        var topLocations = [];
+        locationCount.forEach(function(d) {
+          topLocations.push([d.key,parseInt(d.values)]);
+        });
+
+        // return top 10 locations
+        topLocations = topLocations.slice(0,8);
+        return topLocations;
       }
 
     }

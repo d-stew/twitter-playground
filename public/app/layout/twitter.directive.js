@@ -16,7 +16,9 @@
   twitterController.$inject = ['$scope', 'twitterService', '$interval']
 
   function twitterController($scope, twitterService, $interval) {
+
     var vm = this;
+    var locations;
     var englishData;
     var frenchData;
     var spanishData;
@@ -36,6 +38,11 @@
       [0.01, 0.01, 0.01, 0.01, 0.01]
     ]
 
+    // auto-update location data
+    $scope.$on('updateLocations', function(event, newValue) {
+      locations = newValue;
+    })
+
     // auto-update data for each language
     $scope.$on('updateEnglishData', function(event, newValue) {
       englishData = newValue;
@@ -53,16 +60,21 @@
       portugueseData = newValue;
     })
 
-    // refresh wordcloud and tone data every 5 seconds
+    // refresh hashtag, location and tone data every 5 seconds
     $interval(function() {
       getHashtagData();
-      // englishAnalyzer();
-      // frenchAnalyzer();
-      // spanishAnalyzer();
+      getLocationData();
+      englishAnalyzer();
+      frenchAnalyzer();
+      spanishAnalyzer();
     }, 5000)
 
     function getHashtagData() {
       vm.tags = twitterService.hashtagData(englishData);
+    }
+
+    function getLocationData() {
+      vm.topLocations = twitterService.locationData(locations);
     }
 
     // pass english data to watson
