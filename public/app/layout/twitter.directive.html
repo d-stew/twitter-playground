@@ -5,12 +5,17 @@
     <div id="left-bar" class="col-md-2">
       <h3 class="label">TOP HASHTAGS</h3>
       <br>
+      <div class="loader" ng-hide="vm.tags.length">Loading...</div>
+      <p ng-hide="vm.tags.length" class="text-center">Waiting for Hashtag Data ...</p>
+
       <p ng-repeat="tag in vm.tags">
         <span class="word" ng-bind="tag[0]"></span>
       </p>
 
       <h3 class="label">TOP LOCATIONS</h3>
       <br>
+      <div class="loader" ng-hide="vm.topLocations.length">Loading...</div>
+      <p ng-hide="vm.topLocations.length" class="text-center">Waiting for Geo Data ...</p>
       <p ng-repeat="location in vm.topLocations">
         <span class="location" ng-bind="location[0]"></span>
       </p>
@@ -25,7 +30,7 @@
         |
         <a href="#" ng-click="vm.setDisplay('emotion')">By Emotion</a>
       </span>
-
+      <br><br>
       <div class='bar-chart' ng-show="vm.display === 'emotion'">
         <canvas id="toneChart" class="chart chart-bar"
             chart-colours='colors' chart-legend="true"
@@ -65,9 +70,6 @@
         </div>
       </div>
 
-      <br><br>
-      <h3 class="label">TWEET LOCATIONS</h3>
-      <p>{{ locations }}</p>
     </div>
 
     <!-- RIGHT BAR -->

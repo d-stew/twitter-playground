@@ -39,25 +39,25 @@
     $scope.series = ['English', 'French', 'Spanish', 'Arabic']
     // bar chart initial data values
     $scope.chartData = [
-      [0.01, 0.01, 0.01, 0.01, 0.01],
-      [0.01, 0.01, 0.01, 0.01, 0.01],
-      [0.01, 0.01, 0.01, 0.01, 0.01],
-      [0.01, 0.01, 0.01, 0.01, 0.01]
+      [0.05, 0.05, 0.05, 0.05, 0.05],
+      [0.05, 0.05, 0.05, 0.05, 0.05],
+      [0.05, 0.05, 0.05, 0.05, 0.05],
+      [0.05, 0.05, 0.05, 0.05, 0.05]
     ]
 
-    $scope.englishRadar = [ [0.25, 0.35, 0.5, 0.75, 0.85] ]
+    $scope.englishRadar = [ [0.99, 0.99, 0.99, 0.99, 0.99] ]
     $scope.englishRadarColors = ['#7b8cfe']
     $scope.englishRadarSeries = ['English']
 
-    $scope.frenchRadar = [ [0.10, 0.62, 0.33, 0.52, 0.95] ]
+    $scope.frenchRadar = [ [0.99, 0.99, 0.99, 0.99, 0.99] ]
     $scope.frenchRadarColors = ['#fe7bc6']
     $scope.frenchRadarSeries = ['French']
 
-    $scope.spanishRadar = [ [0.66, 0.10, 0.21, 0.82, 0.88] ]
+    $scope.spanishRadar = [ [0.99, 0.99, 0.99, 0.99, 0.99] ]
     $scope.spanishRadarColors = ['#7af7dd']
     $scope.spanishRadarSeries = ['Spanish']
 
-    $scope.arabicRadar = [ [0.44, 0.89, 0.85, 0.12, 0.22] ]
+    $scope.arabicRadar = [ [0.99, 0.99, 0.99, 0.99, 0.99] ]
     $scope.arabicRadarColors = ['#f7ba7a']
     $scope.arabicRadarSeries = ['Arabic']
 

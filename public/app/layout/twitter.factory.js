@@ -95,7 +95,7 @@
         });
 
         // return top 10 hashtags
-        tags = tags.slice(0,8);
+        tags = tags.slice(0,10);
         return tags;
       }
 
