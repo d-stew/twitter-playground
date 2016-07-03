@@ -8,6 +8,7 @@ var http = require('http');
 var english = require('./routes/english');
 var french = require('./routes/french');
 var spanish = require('./routes/spanish');
+var arabic = require('./routes/arabic');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/english', english);
 app.use('/french', french);
 app.use('/spanish', spanish);
+app.use('/arabic', arabic);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

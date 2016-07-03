@@ -34,11 +34,12 @@
     // bar chart labels
     $scope.labels = ['Anger','Disgust','Fear','Joy','Sadness'];
     // bar chart colors
-    $scope.colors = ['#7b8cfe','#fe7bc6','#7af7dd'];
+    $scope.colors = ['#7b8cfe','#fe7bc6','#7af7dd', '#f7ba7a'];
     // bar chart series
-    $scope.series = ['English', 'French', 'Spanish']
+    $scope.series = ['English', 'French', 'Spanish', 'Arabic']
     // bar chart initial data values
     $scope.chartData = [
+      [0.01, 0.01, 0.01, 0.01, 0.01],
       [0.01, 0.01, 0.01, 0.01, 0.01],
       [0.01, 0.01, 0.01, 0.01, 0.01],
       [0.01, 0.01, 0.01, 0.01, 0.01]
@@ -55,6 +56,10 @@
     $scope.spanishRadar = [ [0.66, 0.10, 0.21, 0.82, 0.88] ]
     $scope.spanishRadarColors = ['#7af7dd']
     $scope.spanishRadarSeries = ['Spanish']
+
+    $scope.arabicRadar = [ [0.44, 0.89, 0.85, 0.12, 0.22] ]
+    $scope.arabicRadarColors = ['#f7ba7a']
+    $scope.arabicRadarSeries = ['Arabic']
 
     // auto-update location data
     $scope.$on('updateLocations', function(event, newValue) {
@@ -82,9 +87,10 @@
     $interval(function() {
       getHashtagData();
       getLocationData();
-      // englishAnalyzer();
-      // frenchAnalyzer();
-      // spanishAnalyzer();
+      englishAnalyzer();
+      frenchAnalyzer();
+      spanishAnalyzer();
+      arabicAnalyzer();
     }, 5000)
 
     function getHashtagData() {
@@ -148,6 +154,25 @@
         $scope.spanishRadar[0][3] = vm.spanishToneData[0].tones[3].score;
         $scope.chartData[2][4] = vm.spanishToneData[0].tones[4].score;
         $scope.spanishRadar[0][4] = vm.spanishToneData[0].tones[4].score;
+      })
+    }
+
+    // pass arabic data to watson
+    function arabicAnalyzer() {
+      if (!arabicData.length) return;
+      twitterService.arabicAnalyzer(arabicData)
+      .then(function(toneData) {
+        vm.arabicToneData = toneData
+        $scope.chartData[3][0] = vm.arabicToneData[0].tones[0].score;
+        $scope.arabicRadar[0][0] = vm.arabicToneData[0].tones[0].score;
+        $scope.chartData[3][1] = vm.arabicToneData[0].tones[1].score;
+        $scope.arabicRadar[0][1] = vm.arabicToneData[0].tones[1].score;
+        $scope.chartData[3][2] = vm.arabicToneData[0].tones[2].score;
+        $scope.arabicRadar[0][2] = vm.arabicToneData[0].tones[2].score;
+        $scope.chartData[3][3] = vm.arabicToneData[0].tones[3].score;
+        $scope.arabicRadar[0][3] = vm.arabicToneData[0].tones[3].score;
+        $scope.chartData[3][4] = vm.arabicToneData[0].tones[4].score;
+        $scope.arabicRadar[0][4] = vm.arabicToneData[0].tones[4].score;
       })
     }
 

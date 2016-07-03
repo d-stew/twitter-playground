@@ -13,7 +13,8 @@
         locationData: getLocationData,
         englishAnalyzer: englishAnalyzer,
         frenchAnalyzer: frenchAnalyzer,
-        spanishAnalyzer: spanishAnalyzer
+        spanishAnalyzer: spanishAnalyzer,
+        arabicAnalyzer: arabicAnalyzer
       }
 
       function englishAnalyzer(englishData) {
@@ -41,6 +42,18 @@
         .then(function(response) {
           var translation = response.data
           return $http.post('http://localhost:3000/spanish/watson/analyze', {translation})
+          .then(function(response) {
+            return response.data.document_tone.tone_categories;
+          })
+        })
+      }
+
+      function arabicAnalyzer(arabicData) {
+        console.log('Arabic - Factory')
+        return $http.post('http://localhost:3000/arabic/watson/translate', {arabicData})
+        .then(function(response) {
+          var translation = response.data
+          return $http.post('http://localhost:3000/arabic/watson/analyze', {translation})
           .then(function(response) {
             return response.data.document_tone.tone_categories;
           })
