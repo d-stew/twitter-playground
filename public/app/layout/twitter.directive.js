@@ -87,10 +87,10 @@
     $interval(function() {
       getHashtagData();
       getLocationData();
-      englishAnalyzer();
-      frenchAnalyzer();
-      spanishAnalyzer();
-      arabicAnalyzer();
+      // englishAnalyzer();
+      // frenchAnalyzer();
+      // spanishAnalyzer();
+      // arabicAnalyzer();
     }, 5000)
 
     function getHashtagData() {
