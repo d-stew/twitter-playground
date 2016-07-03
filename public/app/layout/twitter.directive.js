@@ -19,32 +19,44 @@
 
     var vm = this;
     var locations;
-    var englishData;
-    var frenchData;
-    var spanishData;
-    var arabicData;
-    var portugueseData;
+    var englishData, frenchData, spanishData, arabicData, portugueseData;
 
+    // toggle for tone analysis options
     vm.display = 'language';
-
     vm.setDisplay = function(display) {
       vm.display = display;
     }
 
-    // bar chart labels
-    $scope.labels = ['Anger','Disgust','Fear','Joy','Sadness'];
     // bar chart colors
     $scope.colors = ['#7b8cfe','#fe7bc6','#7af7dd', '#f7ba7a'];
     // bar chart series
     $scope.series = ['English', 'French', 'Spanish', 'Arabic']
-    // bar chart initial data values
-    $scope.chartData = [
-      [0.05, 0.05, 0.05, 0.05, 0.05],
-      [0.05, 0.05, 0.05, 0.05, 0.05],
-      [0.05, 0.05, 0.05, 0.05, 0.05],
-      [0.05, 0.05, 0.05, 0.05, 0.05]
-    ]
 
+    $scope.langLabels = ['English','French','Spanish','Arabic']
+    // bar chart configs
+    $scope.angerData = [[0.95,0.95,0.95,0.95]]
+    $scope.angerColors = ['#f56868'];
+    $scope.angerSeries = ['Anger']
+
+    $scope.disgustData = [[0.95,0.95,0.95,0.95]]
+    $scope.disgustColors = ['#7bfecb'];
+    $scope.disgustSeries = ['Disgust']
+
+    $scope.fearData = [[0.95,0.95,0.95,0.95]]
+    $scope.fearColors = ['#915df1'];
+    $scope.fearSeries = ['Fear']
+
+    $scope.joyData = [[0.95,0.95,0.95,0.95]]
+    $scope.joyColors = ['#ffe082'];
+    $scope.joySeries = ['Joy']
+
+    $scope.sadnessData = [[0.95,0.95,0.95,0.95]]
+    $scope.sadnessColors = ['#7a8bf7']
+    $scope.sadnessSeries = ['Sadness']
+
+    // radar labels
+    $scope.labels = ['Anger','Disgust','Fear','Joy','Sadness'];
+    // radar chart configs
     $scope.englishRadar = [ [0.99, 0.99, 0.99, 0.99, 0.99] ]
     $scope.englishRadarColors = ['#7b8cfe']
     $scope.englishRadarSeries = ['English']
@@ -87,10 +99,10 @@
     $interval(function() {
       getHashtagData();
       getLocationData();
-      // englishAnalyzer();
-      // frenchAnalyzer();
-      // spanishAnalyzer();
-      // arabicAnalyzer();
+      englishAnalyzer();
+      frenchAnalyzer();
+      spanishAnalyzer();
+      arabicAnalyzer();
     }, 5000)
 
     function getHashtagData() {
@@ -105,16 +117,18 @@
     function englishAnalyzer() {
       twitterService.englishAnalyzer(englishData)
       .then(function(toneData) {
+        console.log(toneData);
         vm.englishToneData = toneData
-        $scope.chartData[0][0] = vm.englishToneData[0].tones[0].score;
+        $scope.angerData[0][0] = vm.englishToneData[0].tones[0].score;
+        $scope.disgustData[0][0] = vm.englishToneData[0].tones[1].score;
+        $scope.fearData[0][0] = vm.englishToneData[0].tones[2].score;
+        $scope.joyData[0][0] = vm.englishToneData[0].tones[3].score;
+        $scope.sadnessData[0][0] = vm.englishToneData[0].tones[4].score;
+
         $scope.englishRadar[0][0] = vm.englishToneData[0].tones[0].score
-        $scope.chartData[0][1] = vm.englishToneData[0].tones[1].score;
         $scope.englishRadar[0][1] = vm.englishToneData[0].tones[1].score
-        $scope.chartData[0][2] = vm.englishToneData[0].tones[2].score;
         $scope.englishRadar[0][2] = vm.englishToneData[0].tones[2].score
-        $scope.chartData[0][3] = vm.englishToneData[0].tones[3].score;
         $scope.englishRadar[0][3] = vm.englishToneData[0].tones[3].score
-        $scope.chartData[0][4] = vm.englishToneData[0].tones[4].score;
         $scope.englishRadar[0][4] = vm.englishToneData[0].tones[4].score
       })
     }
@@ -125,15 +139,16 @@
       twitterService.frenchAnalyzer(frenchData)
       .then(function(toneData) {
         vm.frenchToneData = toneData
-        $scope.chartData[1][0] = vm.frenchToneData[0].tones[0].score;
+        $scope.angerData[0][1] = vm.frenchToneData[0].tones[0].score;
+        $scope.disgustData[0][1] = vm.frenchToneData[0].tones[1].score;
+        $scope.fearData[0][1] = vm.frenchToneData[0].tones[2].score;
+        $scope.joyData[0][1] = vm.frenchToneData[0].tones[3].score;
+        $scope.sadnessData[0][1] = vm.frenchToneData[0].tones[4].score;
+
         $scope.frenchRadar[0][0] = vm.frenchToneData[0].tones[0].score;
-        $scope.chartData[1][1] = vm.frenchToneData[0].tones[1].score;
         $scope.frenchRadar[0][1] = vm.frenchToneData[0].tones[1].score;
-        $scope.chartData[1][2] = vm.frenchToneData[0].tones[2].score;
         $scope.frenchRadar[0][2] = vm.frenchToneData[0].tones[2].score;
-        $scope.chartData[1][3] = vm.frenchToneData[0].tones[3].score;
         $scope.frenchRadar[0][3] = vm.frenchToneData[0].tones[3].score;
-        $scope.chartData[1][4] = vm.frenchToneData[0].tones[4].score;
         $scope.frenchRadar[0][4] = vm.frenchToneData[0].tones[4].score;
       })
     }
@@ -144,15 +159,16 @@
       twitterService.spanishAnalyzer(spanishData)
       .then(function(toneData) {
         vm.spanishToneData = toneData
-        $scope.chartData[2][0] = vm.spanishToneData[0].tones[0].score;
+        $scope.angerData[0][2] = vm.spanishToneData[0].tones[0].score;
+        $scope.disgustData[0][2] = vm.spanishToneData[0].tones[1].score;
+        $scope.fearData[0][2] = vm.spanishToneData[0].tones[2].score;
+        $scope.joyData[0][2] = vm.spanishToneData[0].tones[3].score;
+        $scope.sadnessData[0][2] = vm.spanishToneData[0].tones[4].score;
+
         $scope.spanishRadar[0][0] = vm.spanishToneData[0].tones[0].score;
-        $scope.chartData[2][1] = vm.spanishToneData[0].tones[1].score;
         $scope.spanishRadar[0][1] = vm.spanishToneData[0].tones[1].score;
-        $scope.chartData[2][2] = vm.spanishToneData[0].tones[2].score;
         $scope.spanishRadar[0][2] = vm.spanishToneData[0].tones[2].score;
-        $scope.chartData[2][3] = vm.spanishToneData[0].tones[3].score;
         $scope.spanishRadar[0][3] = vm.spanishToneData[0].tones[3].score;
-        $scope.chartData[2][4] = vm.spanishToneData[0].tones[4].score;
         $scope.spanishRadar[0][4] = vm.spanishToneData[0].tones[4].score;
       })
     }
@@ -163,15 +179,16 @@
       twitterService.arabicAnalyzer(arabicData)
       .then(function(toneData) {
         vm.arabicToneData = toneData
-        $scope.chartData[3][0] = vm.arabicToneData[0].tones[0].score;
+        $scope.angerData[0][3] = vm.arabicToneData[0].tones[0].score;
+        $scope.disgustData[0][3] = vm.arabicToneData[0].tones[1].score;
+        $scope.fearData[0][3] = vm.arabicToneData[0].tones[2].score;
+        $scope.joyData[0][3] = vm.arabicToneData[0].tones[3].score;
+        $scope.sadnessData[0][3] = vm.arabicToneData[0].tones[4].score;
+
         $scope.arabicRadar[0][0] = vm.arabicToneData[0].tones[0].score;
-        $scope.chartData[3][1] = vm.arabicToneData[0].tones[1].score;
         $scope.arabicRadar[0][1] = vm.arabicToneData[0].tones[1].score;
-        $scope.chartData[3][2] = vm.arabicToneData[0].tones[2].score;
         $scope.arabicRadar[0][2] = vm.arabicToneData[0].tones[2].score;
-        $scope.chartData[3][3] = vm.arabicToneData[0].tones[3].score;
         $scope.arabicRadar[0][3] = vm.arabicToneData[0].tones[3].score;
-        $scope.chartData[3][4] = vm.arabicToneData[0].tones[4].score;
         $scope.arabicRadar[0][4] = vm.arabicToneData[0].tones[4].score;
       })
     }

@@ -31,38 +31,73 @@
         <a href="#" ng-click="vm.setDisplay('emotion')">By Emotion</a>
       </span>
       <br><br>
-      <div class='bar-chart' ng-show="vm.display === 'emotion'">
-        <canvas id="toneChart" class="chart chart-bar"
-            chart-colours='colors' chart-legend="true"
-            chart-data="chartData" chart-labels="labels"
-            chart-series="series" chart-options="options">
-        </canvas>
+
+      <!-- BAR CHARTS -->
+      <div class="row">
+        <div class='bar-chart col-md-4 col-md-offset-2' ng-show="vm.display === 'emotion'">
+          <canvas id="joyChart" class="chart chart-bar"
+              chart-colours='joyColors' chart-legend="true"
+              chart-data="joyData" chart-labels="langLabels"
+              chart-series="joySeries" chart-options="options">
+          </canvas>
+        </div>
+        <div class='bar-chart col-md-4' ng-show="vm.display === 'emotion'">
+          <canvas id="angerChart" class="chart chart-bar"
+            chart-colours='angerColors' chart-legend="trulangLabelse"
+            chart-data="angerData" chart-labels="langLabels"
+            chart-series="angerSeries" chart-options="options">
+          </canvas>
+        </div>
+      </div>
+      <div class="row">
+        <div class='bar-chart col-md-4' ng-show="vm.display === 'emotion'">
+          <canvas id="disgustChart" class="chart chart-bar"
+              chart-colours='disgustColors' chart-legend="true"
+              chart-data="disgustData" chart-labels="langLabels"
+              chart-series="disgustSeries" chart-options="options">
+          </canvas>
+        </div>
+        <div class='bar-chart col-md-4' ng-show="vm.display === 'emotion'">
+          <canvas id="fearChart" class="chart chart-bar"
+              chart-colours='fearColors' chart-legend="true"
+              chart-data="fearData" chart-labels="langLabels"
+              chart-series="fearSeries" chart-options="options">
+          </canvas>
+        </div>
+        <div class='bar-chart col-md-4' ng-show="vm.display === 'emotion'">
+          <canvas id="sadnessChart" class="chart chart-bar"
+              chart-colours='sadnessColors' chart-legend="true"
+              chart-data="sadnessData" chart-labels="langLabels"
+              chart-series="sadnessSeries" chart-options="options">
+          </canvas>
+        </div>
       </div>
 
+      <!-- RADAR CHARTS -->
       <div class='row radar-charts' ng-show="vm.display === 'language'">
         <div class='col-md-6'>
-          <canvas id='radar' class='chart chart-radar'
+          <canvas id='englishRadar' class='chart chart-radar'
             chart-colours='colors' chart-legend='true'
             chart-data='englishRadar' chart-labels='labels'
             chart-series='series' chart-options='options'>
           </canvas>
         </div>
         <div class='col-md-6'>
-          <canvas id='radar' class='chart chart-radar'
+          <canvas id='frenchRadar' class='chart chart-radar'
             chart-colours='frenchRadarColors' chart-legend='true'
             chart-data='frenchRadar' chart-labels='labels'
             chart-series='frenchRadarSeries' chart-options='options'>
           </canvas>
         </div>
         <div class='col-md-6'>
-          <canvas id='radar' class='chart chart-radar'
+          <canvas id='spanishRadar' class='chart chart-radar'
             chart-colours='spanishRadarColors' chart-legend='true'
             chart-data='spanishRadar' chart-labels='labels'
             chart-series='spanishRadarSeries' chart-options='options'>
           </canvas>
         </div>
         <div class='col-md-6'>
-          <canvas id='radar' class='chart chart-radar'
+          <canvas id='arabicRadar' class='chart chart-radar'
             chart-colours='arabicRadarColors' chart-legend='true'
             chart-data='arabicRadar' chart-labels='labels'
             chart-series='arabicRadarSeries' chart-options='options'>
