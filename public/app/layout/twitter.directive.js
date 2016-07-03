@@ -82,9 +82,9 @@
     $interval(function() {
       getHashtagData();
       getLocationData();
-      englishAnalyzer();
-      frenchAnalyzer();
-      spanishAnalyzer();
+      // englishAnalyzer();
+      // frenchAnalyzer();
+      // spanishAnalyzer();
     }, 5000)
 
     function getHashtagData() {
