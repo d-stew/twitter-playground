@@ -43,7 +43,21 @@
     $scope.setHashtag = setHashtag;
 
     function setHashtag(hashtag) {
-      socket.emit('event', {data: hashtag})
+      socket.emit('event', {data: hashtag});
+
+      $scope.tweetQueue = []
+      $scope.coordinates = [];
+      $scope.locations = [];
+
+      $scope.englishData = "";
+      $scope.englishCount = 0;
+      $scope.frenchData = "";
+      $scope.frenchCount = 0;
+      $scope.spanishData = "";
+      $scope.spanishCount = 0;
+      $scope.arabicData = "";
+      $scope.arabicCount = 0;
+      $scope.portugueseData = "";
     }
 
     // parse data on new tweet

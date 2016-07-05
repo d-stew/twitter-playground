@@ -20,31 +20,19 @@ var client = new Twitter({
 
 var hashtags = '#test';
 
-// client.stream('statuses/filter', {track: hashtags}, function(stream) {
-//   stream.on('data', function(tweet) {
-//     io.emit('newTweet', tweet);
-//   });
-//
-//   stream.on('error', function(error) {
-//     throw error;
-//   });
-// });
-
 io.on('connection', function(socket){
   console.log('a user connected');
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
+
   socket.on('event', function(data) {
-    
     hashtags = data.data;
-    console.log('Hashtags',hashtags);
 
     client.stream('statuses/filter', {track: hashtags}, function(stream) {
       stream.on('data', function(tweet) {
         io.emit('newTweet', tweet);
       });
-
       stream.on('error', function(error) {
         throw error;
       });
