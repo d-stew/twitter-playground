@@ -68,9 +68,6 @@
         // isolate hashtags
         words.forEach(function (word) {
           if(word.charAt(0) === "#") {
-            if(!word.charAt(word.length-1).match(/[a-z]/i)) {
-              word = word.slice(0,-1)
-            }
             var wordObject = {};
             wordObject.word = word;
             wordObjects.push(wordObject);

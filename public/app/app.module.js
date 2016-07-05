@@ -29,10 +29,15 @@
     $scope.tweetQueue = []
     $scope.coordinates = [];
     $scope.locations = [];
+
     $scope.englishData = "";
+    $scope.englishCount = 0;
     $scope.frenchData = "";
+    $scope.frenchCount = 0;
     $scope.spanishData = "";
+    $scope.spanishCount = 0;
     $scope.arabicData = "";
+    $scope.arabicCount = 0;
     $scope.portugueseData = "";
 
     // parse data on new tweet
@@ -58,15 +63,19 @@
       // distribute based on language
       if (lang === "en") {
         $scope.englishData += tweet.text + " ";
+        $scope.englishCount++;
       }
       if (lang === "fr") {
         $scope.frenchData += tweet.text + " ";
+        $scope.frenchCount++;
       }
       if (lang === "es") {
         $scope.spanishData += tweet.text + " ";
+        $scope.spanishCount++;
       }
       if (lang === "ar") {
         $scope.arabicData += tweet.text + " ";
+        $scope.arabicCount++
       }
       if (lang === "pt") {
         $scope.portugueseData += tweet.text + " ";

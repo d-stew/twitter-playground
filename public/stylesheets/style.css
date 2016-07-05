@@ -82,12 +82,21 @@ p.tweet {
 
 /* Center Block*/
 #toneChart {
-  color: white;
+  color: white !important;
 }
 
 div#main-block {
   color: white;
   text-align: center;
+}
+
+svg text {
+    fill: white !important;
+}
+
+canvas {
+  fill: white !important;
+  fillStyle: white !important;
 }
 
 

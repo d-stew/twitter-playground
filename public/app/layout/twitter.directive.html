@@ -43,6 +43,7 @@
               chart-series="joySeries"
               chart-options="options">
           </canvas>
+          <p>
         </div>
         <div class='bar-chart col-md-4' ng-show="vm.display === 'emotion'">
           <canvas id="angerChart"
@@ -101,7 +102,7 @@
         <div class='col-md-6'>
           <canvas id='englishRadar'
             class='chart chart-radar'
-            width="275px" 
+            width="275px"
             chart-colours='colors'
             chart-legend='true'
             chart-data='englishRadar'
@@ -109,6 +110,13 @@
             chart-series='series'
             chart-options='options'>
           </canvas>
+          <p>
+            <ng-pluralize count="englishCount"
+             when="{'0': '(0 tweets)',
+             '1': '(1 tweet)',
+             'other': '({} tweets)'}">
+            </ng-pluralize>
+          </p>
         </div>
         <div class='col-md-6'>
           <canvas id='frenchRadar'
@@ -121,6 +129,13 @@
             chart-series='frenchRadarSeries'
             chart-options='options'>
           </canvas>
+          <p>
+            <ng-pluralize count="frenchCount"
+             when="{'0': '(0 tweets)',
+             '1': '(1 tweet)',
+             'other': '({} tweets)'}">
+            </ng-pluralize>
+          </p>
         </div>
         <div class='col-md-6'>
           <canvas id='spanishRadar'
@@ -133,6 +148,13 @@
             chart-series='spanishRadarSeries'
             chart-options='options'>
           </canvas>
+          <p>
+            <ng-pluralize count="spanishCount"
+             when="{'0': '(0 tweets)',
+             '1': '(1 tweet)',
+             'other': '({} tweets)'}">
+            </ng-pluralize>
+          </p>
         </div>
         <div class='col-md-6'>
           <canvas id='arabicRadar'
@@ -145,9 +167,15 @@
             chart-series='arabicRadarSeries'
             chart-options='options'>
           </canvas>
+          <p>
+            <ng-pluralize count="arabicCount"
+             when="{'0': '(0 tweets)',
+             '1': '(1 tweet)',
+             'other': '({} tweets)'}">
+            </ng-pluralize>
+          </p>
         </div>
       </div>
-
     </div>
 
     <!-- RIGHT BAR -->

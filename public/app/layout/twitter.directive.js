@@ -31,45 +31,45 @@
     $scope.colors = ['#7b8cfe','#fe7bc6','#7af7dd', '#f7ba7a'];
     // bar chart series
     $scope.series = ['English', 'French', 'Spanish', 'Arabic']
-
+    // bar chart labels
     $scope.langLabels = ['English','French','Spanish','Arabic']
     // bar chart configs
-    $scope.angerData = [[0.95,0.95,0.95,0.95]]
+    $scope.angerData = [[0.15,0.15,0.15,0.15]]
     $scope.angerColors = ['#f56868'];
     $scope.angerSeries = ['Anger']
 
-    $scope.disgustData = [[0.95,0.95,0.95,0.95]]
+    $scope.disgustData = [[0.15,0.15,0.15,0.15]]
     $scope.disgustColors = ['#7bfecb'];
     $scope.disgustSeries = ['Disgust']
 
-    $scope.fearData = [[0.95,0.95,0.95,0.95]]
+    $scope.fearData = [[0.15,0.15,0.15,0.15]]
     $scope.fearColors = ['#915df1'];
     $scope.fearSeries = ['Fear']
 
-    $scope.joyData = [[0.95,0.95,0.95,0.95]]
+    $scope.joyData = [[0.15,0.15,0.15,0.15]]
     $scope.joyColors = ['#ffe082'];
     $scope.joySeries = ['Joy']
 
-    $scope.sadnessData = [[0.95,0.95,0.95,0.95]]
+    $scope.sadnessData = [[0.15,0.15,0.15,0.15]]
     $scope.sadnessColors = ['#7a8bf7']
     $scope.sadnessSeries = ['Sadness']
 
     // radar labels
     $scope.labels = ['Anger','Disgust','Fear','Joy','Sadness'];
     // radar chart configs
-    $scope.englishRadar = [ [0.99, 0.99, 0.99, 0.99, 0.99] ]
+    $scope.englishRadar = [ [0.50, 0.50, 0.50, 0.50, 0.50] ]
     $scope.englishRadarColors = ['#7b8cfe']
     $scope.englishRadarSeries = ['English']
 
-    $scope.frenchRadar = [ [0.99, 0.99, 0.99, 0.99, 0.99] ]
+    $scope.frenchRadar = [ [0.50, 0.50, 0.50, 0.50, 0.50] ]
     $scope.frenchRadarColors = ['#fe7bc6']
     $scope.frenchRadarSeries = ['French']
 
-    $scope.spanishRadar = [ [0.99, 0.99, 0.99, 0.99, 0.99] ]
+    $scope.spanishRadar = [ [0.50, 0.50, 0.50, 0.50, 0.50] ]
     $scope.spanishRadarColors = ['#7af7dd']
     $scope.spanishRadarSeries = ['Spanish']
 
-    $scope.arabicRadar = [ [0.99, 0.99, 0.99, 0.99, 0.99] ]
+    $scope.arabicRadar = [ [0.50, 0.50, 0.50, 0.50, 0.50] ]
     $scope.arabicRadarColors = ['#f7ba7a']
     $scope.arabicRadarSeries = ['Arabic']
 
@@ -99,10 +99,10 @@
     $interval(function() {
       getHashtagData();
       getLocationData();
-      englishAnalyzer();
-      frenchAnalyzer();
-      spanishAnalyzer();
-      arabicAnalyzer();
+      // englishAnalyzer();
+      // frenchAnalyzer();
+      // spanishAnalyzer();
+      // arabicAnalyzer();
     }, 5000)
 
     function getHashtagData() {
