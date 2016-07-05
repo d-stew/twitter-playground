@@ -40,8 +40,15 @@
     $scope.arabicCount = 0;
     $scope.portugueseData = "";
 
+    $scope.setHashtag = setHashtag;
+
+    function setHashtag(hashtag) {
+      socket.emit('event', {data: hashtag})
+    }
+
     // parse data on new tweet
     socket.on('newTweet', function (tweet) {
+      // socket.emit('event', {data: 'tweet'})
 
       $scope.tweet = tweet.text
       $scope.user = tweet.user.screen_name
