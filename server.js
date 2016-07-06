@@ -4,13 +4,11 @@ var http = require('http');
 var port = '3000';
 var app = require('./app');
 var Twitter = require('twitter');
-
 var server = app.listen(process.env.PORT || 3000, function () {
   console.log('Listening on port 3000...');
 });
 
 var io = require('socket.io').listen(server);
-
 var client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -22,6 +20,7 @@ var hashtags = '#test';
 
 io.on('connection', function(socket){
   console.log('a user connected');
+
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });

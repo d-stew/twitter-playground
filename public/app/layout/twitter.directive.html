@@ -4,14 +4,14 @@
     <!-- LEFT BAR -->
     <div id="left-bar" class="col-md-2">
       <!-- Hashtags -->
-      <h3 class="label">TOP HASHTAGS</h3><br>
+      <h3 class="label text-center">TOP HASHTAGS</h3><br><br>
       <div class="loader" ng-hide="vm.tags.length">Loading...</div>
       <p ng-hide="vm.tags.length" class="text-center">Waiting for Hashtag Data ...</p>
       <p ng-repeat="tag in vm.tags">
         <span class="word" ng-bind="tag[0]"></span>
       </p>
       <!-- Locations -->
-      <h3 class="label">TOP LOCATIONS</h3> <br>
+      <h3 class="label text-center">TOP LOCATIONS</h3><br><br>
       <div class="loader" ng-hide="vm.topLocations.length">Loading...</div>
       <p ng-hide="vm.topLocations.length" class="text-center">Waiting for Geo Data ...</p>
       <p ng-repeat="location in vm.topLocations">
@@ -99,11 +99,11 @@
 
       <!-- Radar Charts -->
       <div class='row radar-charts' ng-show="vm.display === 'language'">
-        <div class='col-md-6'>
+        <div class='col-md-5 col-md-offset-1 english-radar'>
           <canvas id='englishRadar'
             class='chart chart-radar'
             width="275px"
-            chart-colours='colors'
+            chart-colours='englishRadarColors'
             chart-legend='true'
             chart-data='englishRadar'
             chart-labels='labels'
@@ -112,13 +112,13 @@
           </canvas>
           <p>
             <ng-pluralize count="englishCount"
-             when="{'0': '(0 tweets)',
-             '1': '(1 tweet)',
-             'other': '({} tweets)'}">
+             when="{'0': '0 tweets',
+             '1': '1 tweet',
+             'other': '{} tweets'}">
             </ng-pluralize>
           </p>
         </div>
-        <div class='col-md-6'>
+        <div class='col-md-5 french-radar'>
           <canvas id='frenchRadar'
             class='chart chart-radar'
             width="275px"
@@ -131,13 +131,13 @@
           </canvas>
           <p>
             <ng-pluralize count="frenchCount"
-             when="{'0': '(0 tweets)',
-             '1': '(1 tweet)',
-             'other': '({} tweets)'}">
+             when="{'0': '0 tweets',
+             '1': '1 tweet',
+             'other': '{} tweets'}">
             </ng-pluralize>
           </p>
         </div>
-        <div class='col-md-6'>
+        <div class='col-md-5 col-md-offset-1 spanish-radar'>
           <canvas id='spanishRadar'
             class='chart chart-radar'
             width="275px"
@@ -150,28 +150,28 @@
           </canvas>
           <p>
             <ng-pluralize count="spanishCount"
-             when="{'0': '(0 tweets)',
-             '1': '(1 tweet)',
-             'other': '({} tweets)'}">
+             when="{'0': '0 tweets',
+             '1': '1 tweet',
+             'other': '{} tweets'}">
             </ng-pluralize>
           </p>
         </div>
-        <div class='col-md-6'>
+        <div class='col-md-5 arabic-radar'>
           <canvas id='arabicRadar'
             class='chart chart-radar'
             width="275px"
-            chart-colours='arabicRadarColors'
+            chart-colours='portugueseRadarColors'
             chart-legend='true'
-            chart-data='arabicRadar'
+            chart-data='portugueseRadar'
             chart-labels='labels'
-            chart-series='arabicRadarSeries'
+            chart-series='portugueseRadarSeries'
             chart-options='options'>
           </canvas>
           <p>
-            <ng-pluralize count="arabicCount"
-             when="{'0': '(0 tweets)',
-             '1': '(1 tweet)',
-             'other': '({} tweets)'}">
+            <ng-pluralize count="portugueseCount"
+             when="{'0': '0 tweets',
+             '1': '1 tweet',
+             'other': '{} tweets'}">
             </ng-pluralize>
           </p>
         </div>
@@ -180,8 +180,8 @@
 
     <!-- RIGHT BAR -->
     <div id="right-bar" class="col-md-2">
-      <h3 class="label">LIVE TWEETS</h3>
-      <br>
+      <h3 class="label text-center">LIVE TWEETS</h3><br><br>
+
       <div ng-repeat="tweet in tweetQueue track by $index" class="tweet">
         <p class="username"><b> @{{ tweet.user }} </b></p>
         <p class="tweet"> {{ tweet.tweet }}</p>

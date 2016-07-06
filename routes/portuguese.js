@@ -16,10 +16,10 @@ var language_translator = watson.language_translator({
 });
 
 router.post('/watson/translate', function(req, res, next) {
-  var data = req.body.arabicData;
+  var data = req.body.portugueseData;
 
   language_translator.translate({
-    text: data, source : 'ar', target: 'en' },
+    text: data, source : 'pt', target: 'en' },
     function (err, translation) {
       if (err)
         console.log('error:', err);

@@ -14,7 +14,7 @@
         englishAnalyzer: englishAnalyzer,
         frenchAnalyzer: frenchAnalyzer,
         spanishAnalyzer: spanishAnalyzer,
-        arabicAnalyzer: arabicAnalyzer
+        portugueseAnalyzer: portugueseAnalyzer
       }
 
       function englishAnalyzer(englishData) {
@@ -48,12 +48,12 @@
         })
       }
 
-      function arabicAnalyzer(arabicData) {
-        console.log('Arabic - Factory')
-        return $http.post('http://localhost:3000/arabic/watson/translate', {arabicData})
+      function portugueseAnalyzer(portugueseData) {
+        console.log('Portuguese - Factory')
+        return $http.post('http://localhost:3000/portuguese/watson/translate', {portugueseData})
         .then(function(response) {
           var translation = response.data
-          return $http.post('http://localhost:3000/arabic/watson/analyze', {translation})
+          return $http.post('http://localhost:3000/portuguese/watson/analyze', {translation})
           .then(function(response) {
             return response.data.document_tone.tone_categories;
           })
@@ -91,8 +91,8 @@
           tags.push([d.key,parseInt(d.values)]);
         });
 
-        // return top 10 hashtags
-        tags = tags.slice(0,10);
+        // return top 8 hashtags
+        tags = tags.slice(0,8);
         return tags;
       }
 
@@ -123,7 +123,7 @@
           topLocations.push([d.key,parseInt(d.values)]);
         });
 
-        // return top 10 locations
+        // return top 8 locations
         topLocations = topLocations.slice(0,8);
         return topLocations;
       }

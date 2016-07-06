@@ -39,25 +39,28 @@
     $scope.arabicData = "";
     $scope.arabicCount = 0;
     $scope.portugueseData = "";
+    $scope.portugueseCount = 0;
 
     $scope.setHashtag = setHashtag;
 
     function setHashtag(hashtag) {
+      // socket.emit('event', {data: "odisajfoisdjfiodsa"})
       socket.emit('event', {data: hashtag});
 
-      $scope.tweetQueue = []
-      $scope.coordinates = [];
-      $scope.locations = [];
-
-      $scope.englishData = "";
-      $scope.englishCount = 0;
-      $scope.frenchData = "";
-      $scope.frenchCount = 0;
-      $scope.spanishData = "";
-      $scope.spanishCount = 0;
-      $scope.arabicData = "";
-      $scope.arabicCount = 0;
-      $scope.portugueseData = "";
+      // $scope.tweetQueue = []
+      // $scope.coordinates = [];
+      // $scope.locations = [];
+      // 
+      // $scope.englishData = "";
+      // $scope.englishCount = 0;
+      // $scope.frenchData = "";
+      // $scope.frenchCount = 0;
+      // $scope.spanishData = "";
+      // $scope.spanishCount = 0;
+      // $scope.arabicData = "";
+      // $scope.arabicCount = 0;
+      // $scope.portugueseData = "";
+      // $scope.portugueseCount = 0;
     }
 
     // parse data on new tweet
@@ -96,10 +99,11 @@
       }
       if (lang === "ar") {
         $scope.arabicData += tweet.text + " ";
-        $scope.arabicCount++
+        $scope.arabicCount++;
       }
       if (lang === "pt") {
         $scope.portugueseData += tweet.text + " ";
+        $scope.portugueseCount ++;
       }
 
       // check source for geolocation
