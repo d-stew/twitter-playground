@@ -22,11 +22,16 @@ a.navbar-brand {
   font-size: 28px;
   text-align: left;
 }
+input.submit {
+  background-color: rgb(118, 176, 244);
+  color: white;
+  border: none;
+}
 
 h3.label {
   font-family: 'Raleway', sans-serif;
   color: rgb(0, 8, 64);
-  font-size: 22px;
+  font-size: 20px;
   padding-left: 0;
   margin-bottom: 10px;
 }
@@ -81,6 +86,7 @@ p.tweet {
   font-size: 12px;
 }
 
+
 /* Center Block*/
 
 div#main-block {
@@ -112,6 +118,22 @@ div.arabic-radar {
   margin-top: 5px;
   margin-left: 5px;
   padding-top: 10px;
+}
+button.display {
+  margin-top: 1%;
+  margin-bottom: 2%;
+  border: none;
+}
+button.active {
+  background-color: rgb(118, 176, 244) !important;
+}
+button.active > a {
+  color: white !important;
+  text-decoration: none;
+}
+button.display > a {
+  color: rgb(0, 8, 64);
+  text-decoration: none;
 }
 
 /* LOADING SPINNERS */

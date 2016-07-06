@@ -34,7 +34,7 @@
     // bar chart labels
     $scope.langLabels = ['English','French','Spanish','Portuguese']
     // bar chart configs
-    $scope.angerData = [[0.15,0.15,0.15,0.15]]
+    $scope.angerData = [[0.01,0.01,0.01,0.01]]
     $scope.angerSeries = ['Anger']
     $scope.angerColors = [{ // red
         fillColor: "rgba(240, 0, 5, 0.49)",
@@ -45,7 +45,7 @@
         pointHighlightStroke: "rgba(167, 0, 4, 0.8)"
     }];
 
-    $scope.disgustData = [[0.15,0.15,0.15,0.15]]
+    $scope.disgustData = [[0.01,0.01,0.01,0.01]]
     $scope.disgustSeries = ['Disgust']
     $scope.disgustColors = [{ // red
         fillColor: "rgba(0, 170, 78, 0.48)",
@@ -56,7 +56,7 @@
         pointHighlightStroke: "rgba(0, 75, 35, 0.8)"
     }];
 
-    $scope.fearData = [[0.15,0.15,0.15,0.15]]
+    $scope.fearData = [[0.01,0.01,0.01,0.01]]
     $scope.fearSeries = ['Fear']
     $scope.fearColors = [{ // red
         fillColor: "rgba(74, 0, 126, 0.45)",
@@ -67,7 +67,7 @@
         pointHighlightStroke: "rgba(83, 0, 148, 0.8)"
     }];
 
-    $scope.joyData = [[0.15,0.15,0.15,0.15]]
+    $scope.joyData = [[0.01,0.01,0.01,0.01]]
     $scope.joySeries = ['Joy']
     $scope.joyColors = [{ // red
         fillColor: "rgba(227, 238, 0, 0.47)",
@@ -78,7 +78,7 @@
         pointHighlightStroke: "rgba(213, 180, 4, 0.8)"
     }];
 
-    $scope.sadnessData = [[0.15,0.15,0.15,0.15]]
+    $scope.sadnessData = [[0.01,0.01,0.01,0.01]]
     $scope.sadnessSeries = ['Sadness']
     $scope.sadnessColors = [{ // red
         fillColor: "rgba(5, 0, 237, 0.5)",

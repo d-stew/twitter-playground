@@ -44,13 +44,14 @@
     $scope.setHashtag = setHashtag;
 
     function setHashtag(hashtag) {
+      $scope.currentHashtag = hashtag;
       // socket.emit('event', {data: "odisajfoisdjfiodsa"})
       socket.emit('event', {data: hashtag});
 
       // $scope.tweetQueue = []
       // $scope.coordinates = [];
       // $scope.locations = [];
-      // 
+      //
       // $scope.englishData = "";
       // $scope.englishCount = 0;
       // $scope.frenchData = "";

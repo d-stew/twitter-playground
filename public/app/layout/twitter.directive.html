@@ -4,7 +4,7 @@
     <!-- LEFT BAR -->
     <div id="left-bar" class="col-md-2">
       <!-- Hashtags -->
-      <h3 class="label text-center">TOP HASHTAGS</h3><br><br>
+      <h3 class="label text-center">RELATED HASHTAGS</h3><br><br>
       <div class="loader" ng-hide="vm.tags.length">Loading...</div>
       <p ng-hide="vm.tags.length" class="text-center">Waiting for Hashtag Data ...</p>
       <p ng-repeat="tag in vm.tags">
@@ -22,14 +22,12 @@
     <!-- MAIN BLOCK -->
     <div id="main-block" class="col-md-8 col-md-offset-2">
       <!-- Header -->
-      <h3 class="label">TONE ANALYSIS</h3><br>
       <span class='text-center'>
-        <a href="#" ng-click="vm.setDisplay('language')">By Language</a>
-        |
-        <a href="#" ng-click="vm.setDisplay('emotion')">By Emotion</a>
+        <h3 class="label">TONE ANALYSIS <span ng-show="currentHashtag">for '{{ currentHashtag | uppercase }}'</span></h3><br>
+        <button type="button" class="btn btn-default display" ng-class="{'active': vm.display === 'language'}"><a href="#" ng-click="vm.setDisplay('language')">By Language</a></button>
+        <button type="button" class="btn btn-default display" ng-class="{'active': vm.display === 'emotion'}"><a href="#" ng-click="vm.setDisplay('emotion')">By Emotion</a></button>
       </span>
-      <br><br>
-
+      <br>
       <!-- Bar Charts -->
       <div class="row">
         <div class='bar-chart col-md-4 col-md-offset-2' ng-show="vm.display === 'emotion'">
